@@ -1,5 +1,6 @@
 using Zenject;
-using Core.Input;
+using Core.Services;
+using Core.ECS;
 
 namespace Core.Infrastructure.Installers
 {
@@ -7,7 +8,8 @@ namespace Core.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<IInputSystem>().To<JoystickInput>().AsSingle();
+            Container.Bind<IInputService>().To<JoystickInput>().AsSingle();
+            Container.BindInterfacesTo<ECSStartup>().AsSingle().NonLazy();
         }
     }
 }

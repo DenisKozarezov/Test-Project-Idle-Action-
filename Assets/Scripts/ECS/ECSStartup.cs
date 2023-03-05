@@ -1,22 +1,43 @@
 using Zenject;
-using Entitas;
+using Core.ECS.Systems;
+using Core.ECS.ViewListeners;
+using Core.Services;
+
 namespace Core.ECS
 {
-    public sealed class ECSStartup : IInitializable, ITickable
+    public sealed class ECSStartup : ITickable
     {
-        private readonly Systems _allSystems;
-        public ECSStartup() 
-        {
-            
-        }
+        private readonly AllSystems _allSystems;
 
-        public void Initialize()
+        public ECSStartup(
+            IInputService inputSystem,
+            ILogService logger,
+            IRegisterService<IViewController> collisionRegistry,
+            ITimeService time,
+            IPhysicsService physics,
+            IIdentifierService identifier,
+            DiContainer diContainer)
         {
-            throw new System.NotImplementedException();
+            Contexts contexts = Contexts.sharedInstance;
+
+            Services.Services allServices = new Services.Services
+            {
+                Logger = logger,
+                Identifiers = identifier,
+                Time = time,
+                InputService = inputSystem,
+                Physics = physics,
+                CollisionRegistry = collisionRegistry,
+                DiContainer = diContainer
+            };
+
+            _allSystems = new AllSystems(contexts, allServices);
+            _allSystems.Initialize();
         }
         public void Tick()
         {
-            throw new System.NotImplementedException();
+            _allSystems.Execute();
+            _allSystems.Cleanup();
         }
     }
 }
