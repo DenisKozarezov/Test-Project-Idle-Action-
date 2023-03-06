@@ -20,6 +20,7 @@ namespace Core.ECS.Components
     // Tags
     public sealed class Player : IComponent { }
 
+    [Event(Self)] public sealed class Position : IComponent { public Vector3 Value; }
     [Event(Self)] public sealed class Grounded : IComponent { }
     [Event(Self)] public sealed class Moving : IComponent { }
     [Event(Self), Cleanup(DestroyEntity)] public sealed class Destroyed : IComponent { }

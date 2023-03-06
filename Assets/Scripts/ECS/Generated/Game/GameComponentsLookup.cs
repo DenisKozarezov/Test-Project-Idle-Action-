@@ -21,18 +21,20 @@ public static class GameComponentsLookup {
     public const int Moving = 10;
     public const int Physics = 11;
     public const int Player = 12;
-    public const int Rigidbody = 13;
-    public const int SpriteRenderer = 14;
-    public const int StoppedMoving = 15;
-    public const int Time = 16;
-    public const int Transform = 17;
-    public const int ViewController = 18;
-    public const int DestroyedListener = 19;
-    public const int GroundedListener = 20;
-    public const int MovingListener = 21;
-    public const int StoppedMovingListener = 22;
+    public const int Position = 13;
+    public const int Rigidbody = 14;
+    public const int SpriteRenderer = 15;
+    public const int StoppedMoving = 16;
+    public const int Time = 17;
+    public const int Transform = 18;
+    public const int ViewController = 19;
+    public const int DestroyedListener = 20;
+    public const int GroundedListener = 21;
+    public const int MovingListener = 22;
+    public const int PositionListener = 23;
+    public const int StoppedMovingListener = 24;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "CollidedListener",
@@ -48,6 +50,7 @@ public static class GameComponentsLookup {
         "Moving",
         "Physics",
         "Player",
+        "Position",
         "Rigidbody",
         "SpriteRenderer",
         "StoppedMoving",
@@ -57,6 +60,7 @@ public static class GameComponentsLookup {
         "DestroyedListener",
         "GroundedListener",
         "MovingListener",
+        "PositionListener",
         "StoppedMovingListener"
     };
 
@@ -74,6 +78,7 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.Moving),
         typeof(Core.ECS.Components.Physics),
         typeof(Core.ECS.Components.Player),
+        typeof(Core.ECS.Components.Position),
         typeof(Core.ECS.Components.RigidbodyComponent),
         typeof(Core.ECS.Components.SpriteRendererComponent),
         typeof(Core.ECS.Components.StoppedMoving),
@@ -83,6 +88,7 @@ public static class GameComponentsLookup {
         typeof(DestroyedListenerComponent),
         typeof(GroundedListenerComponent),
         typeof(MovingListenerComponent),
+        typeof(PositionListenerComponent),
         typeof(StoppedMovingListenerComponent)
     };
 }
