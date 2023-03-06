@@ -17,3 +17,4 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <MaxWheatStacks>k__BackingField: 40
   <MovementSpeed>k__BackingField: 3
+  <ItemPrefab>k__BackingField: {fileID: 0}

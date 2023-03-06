@@ -8,6 +8,5 @@ namespace Core.Models
         [field: Header("Characteristics")]
         [field: SerializeField] public byte MaxWheatStacks { get; private set; }
         [field: SerializeField, Min(0f)] public float MovementSpeed { get; private set; }
-        [field: SerializeReference] public GameObject ItemPrefab { get; private set; }
     }
 }

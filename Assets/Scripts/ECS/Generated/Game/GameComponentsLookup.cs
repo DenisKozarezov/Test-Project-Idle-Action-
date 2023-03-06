@@ -14,27 +14,30 @@ public static class GameComponentsLookup {
     public const int Collider = 3;
     public const int CollisionRegistry = 4;
     public const int Destroyed = 5;
-    public const int Grounded = 6;
-    public const int Id = 7;
-    public const int Identifiers = 8;
-    public const int Logger = 9;
-    public const int Moving = 10;
-    public const int Physics = 11;
-    public const int Player = 12;
-    public const int Position = 13;
-    public const int Rigidbody = 14;
-    public const int SpriteRenderer = 15;
-    public const int StoppedMoving = 16;
-    public const int Time = 17;
-    public const int Transform = 18;
-    public const int ViewController = 19;
-    public const int DestroyedListener = 20;
-    public const int GroundedListener = 21;
-    public const int MovingListener = 22;
-    public const int PositionListener = 23;
-    public const int StoppedMovingListener = 24;
+    public const int Direction = 6;
+    public const int Grounded = 7;
+    public const int Id = 8;
+    public const int Identifiers = 9;
+    public const int Logger = 10;
+    public const int Moving = 11;
+    public const int Physics = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int Rigidbody = 15;
+    public const int SpriteRenderer = 16;
+    public const int StoppedMoving = 17;
+    public const int Time = 18;
+    public const int Transform = 19;
+    public const int JoystickUI = 20;
+    public const int ViewController = 21;
+    public const int DestroyedListener = 22;
+    public const int DirectionListener = 23;
+    public const int GroundedListener = 24;
+    public const int MovingListener = 25;
+    public const int PositionListener = 26;
+    public const int StoppedMovingListener = 27;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
         "CollidedListener",
@@ -43,6 +46,7 @@ public static class GameComponentsLookup {
         "Collider",
         "CollisionRegistry",
         "Destroyed",
+        "Direction",
         "Grounded",
         "Id",
         "Identifiers",
@@ -56,8 +60,10 @@ public static class GameComponentsLookup {
         "StoppedMoving",
         "Time",
         "Transform",
+        "JoystickUI",
         "ViewController",
         "DestroyedListener",
+        "DirectionListener",
         "GroundedListener",
         "MovingListener",
         "PositionListener",
@@ -71,6 +77,7 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.ColliderComponent),
         typeof(Core.ECS.Components.CollisionRegistry),
         typeof(Core.ECS.Components.Destroyed),
+        typeof(Core.ECS.Components.Direction),
         typeof(Core.ECS.Components.Grounded),
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),
@@ -84,8 +91,10 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.StoppedMoving),
         typeof(Core.ECS.Components.Time),
         typeof(Core.ECS.Components.TransformComponent),
+        typeof(Core.ECS.Components.UI.JoystickUI),
         typeof(Core.ECS.Components.ViewControllerComponent),
         typeof(DestroyedListenerComponent),
+        typeof(DirectionListenerComponent),
         typeof(GroundedListenerComponent),
         typeof(MovingListenerComponent),
         typeof(PositionListenerComponent),
