@@ -15,8 +15,9 @@ public static class InputComponentsLookup {
     public const int Joystick = 4;
     public const int StoppedDragging = 5;
     public const int TouchClick = 6;
+    public const int TouchOffset = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "AnyStoppedDraggingListener",
@@ -25,7 +26,8 @@ public static class InputComponentsLookup {
         "Input",
         "Joystick",
         "StoppedDragging",
-        "TouchClick"
+        "TouchClick",
+        "TouchOffset"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -35,6 +37,7 @@ public static class InputComponentsLookup {
         typeof(Core.ECS.Components.Input),
         typeof(Core.ECS.Components.Joystick),
         typeof(Core.ECS.Components.StoppedDragging),
-        typeof(Core.ECS.Components.TouchClick)
+        typeof(Core.ECS.Components.TouchClick),
+        typeof(Core.ECS.Components.TouchOffset)
     };
 }

@@ -6,7 +6,9 @@ namespace Core.Services
     {
         bool IsEnabled { get; }
         bool IsDragging { get; }
-        ref Vector3 Direction { get; } 
+        bool IsTouch { get; }
+        Vector2 TouchPosition { get; }
+        Vector2 TouchOffset { get; }
         void Enable();
         void Disable();
     }

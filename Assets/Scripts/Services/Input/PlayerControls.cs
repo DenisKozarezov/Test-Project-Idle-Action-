@@ -30,91 +30,34 @@ namespace Core.Services
             ""id"": ""073d644a-92f8-4f87-bf2c-59b957d839d4"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""TouchInput"",
                     ""type"": ""Value"",
-                    ""id"": ""85edb9b8-b4ea-450c-8778-5c58e1f20f6b"",
+                    ""id"": ""f5371793-b0a4-47c9-a66a-2fd753012ea0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TouchPress"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""79b3c5ff-b804-4e64-9fb5-7c92e8742ae1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TouchPosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""1f2daef0-a243-4401-914f-e87fb51a9949"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Touch"",
-                    ""type"": ""Value"",
-                    ""id"": ""f5371793-b0a4-47c9-a66a-2fd753012ea0"",
-                    ""expectedControlType"": ""Touch"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""df818cad-cf3f-4131-9ac0-10697ef2deca"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""e3ce2456-b6a9-4fd8-b520-28dfae2e62ba"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""c5c127c0-bfdd-4251-babf-a439dd4ff6d4"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a0f482eb-9f83-4f4e-94e4-23d8b6205942"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""3fe8104f-75d7-4332-8df1-a1313484e156"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""455ed725-bd24-441a-b737-b22034e30761"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""c492344f-ac0a-433e-92c5-b03dc576a5a0"",
@@ -122,7 +65,29 @@ namespace Core.Services
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Touch"",
+                    ""action"": ""TouchInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""268f6cd9-a057-4a26-a326-04fc3e368919"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b71ba4da-9d1e-434b-b913-33cf5d623d29"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -133,8 +98,9 @@ namespace Core.Services
 }");
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-            m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
+            m_Player_TouchInput = m_Player.FindAction("TouchInput", throwIfNotFound: true);
+            m_Player_TouchPress = m_Player.FindAction("TouchPress", throwIfNotFound: true);
+            m_Player_TouchPosition = m_Player.FindAction("TouchPosition", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -194,14 +160,16 @@ namespace Core.Services
         // Player
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_Move;
-        private readonly InputAction m_Player_Touch;
+        private readonly InputAction m_Player_TouchInput;
+        private readonly InputAction m_Player_TouchPress;
+        private readonly InputAction m_Player_TouchPosition;
         public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
             public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Move => m_Wrapper.m_Player_Move;
-            public InputAction @Touch => m_Wrapper.m_Player_Touch;
+            public InputAction @TouchInput => m_Wrapper.m_Player_TouchInput;
+            public InputAction @TouchPress => m_Wrapper.m_Player_TouchPress;
+            public InputAction @TouchPosition => m_Wrapper.m_Player_TouchPosition;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -211,30 +179,37 @@ namespace Core.Services
             {
                 if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
                 {
-                    @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Touch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                    @Touch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                    @Touch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
+                    @TouchInput.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchInput;
+                    @TouchInput.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchInput;
+                    @TouchInput.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchInput;
+                    @TouchPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Move.started += instance.OnMove;
-                    @Move.performed += instance.OnMove;
-                    @Move.canceled += instance.OnMove;
-                    @Touch.started += instance.OnTouch;
-                    @Touch.performed += instance.OnTouch;
-                    @Touch.canceled += instance.OnTouch;
+                    @TouchInput.started += instance.OnTouchInput;
+                    @TouchInput.performed += instance.OnTouchInput;
+                    @TouchInput.canceled += instance.OnTouchInput;
+                    @TouchPress.started += instance.OnTouchPress;
+                    @TouchPress.performed += instance.OnTouchPress;
+                    @TouchPress.canceled += instance.OnTouchPress;
+                    @TouchPosition.started += instance.OnTouchPosition;
+                    @TouchPosition.performed += instance.OnTouchPosition;
+                    @TouchPosition.canceled += instance.OnTouchPosition;
                 }
             }
         }
         public PlayerActions @Player => new PlayerActions(this);
         public interface IPlayerActions
         {
-            void OnMove(InputAction.CallbackContext context);
-            void OnTouch(InputAction.CallbackContext context);
+            void OnTouchInput(InputAction.CallbackContext context);
+            void OnTouchPress(InputAction.CallbackContext context);
+            void OnTouchPosition(InputAction.CallbackContext context);
         }
     }
 }

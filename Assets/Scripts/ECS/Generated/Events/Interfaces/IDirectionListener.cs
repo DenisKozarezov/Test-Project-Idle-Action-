@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IDirectionListener {
-    void OnDirection(GameEntity entity, float value);
+    void OnDirection(GameEntity entity, UnityEngine.Vector3 value);
 }

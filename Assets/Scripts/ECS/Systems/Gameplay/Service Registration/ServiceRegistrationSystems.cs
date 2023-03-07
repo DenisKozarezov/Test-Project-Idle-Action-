@@ -11,8 +11,6 @@ namespace Core.ECS.Systems
             GameContext game = contexts.game;
             InputContext input = contexts.input;
 
-            Add(new RegisterServiceSystem<ILogService>(services.Logger, game.ReplaceLogger));
-            //Add(new RegisterServiceSystem<IViewService>(services.ViewService, game.ReplaceViewCreator));
             Add(new RegisterServiceSystem<ITimeService>(services.Time, game.ReplaceTime));
             Add(new RegisterServiceSystem<IInputService>(services.InputService, input.ReplaceInput));
             Add(new RegisterServiceSystem<IPhysicsService>(services.Physics, game.ReplacePhysics));

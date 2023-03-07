@@ -4,7 +4,8 @@ namespace Core.ECS.Systems.Player
     {
         public PlayerSystems(Contexts contexts) : base(nameof(PlayerSystems))
         {
-
+            Add(new PlayerMoveSystem(contexts.game, contexts.input));
+            Add(new PlayerStoppedMovingSystem(contexts.game));
         }
     }
 }

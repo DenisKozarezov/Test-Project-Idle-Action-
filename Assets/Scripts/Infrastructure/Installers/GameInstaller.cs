@@ -8,7 +8,7 @@ namespace Core.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<IInputService>().To<JoystickInput>().AsSingle();
+            Container.BindInterfacesAndSelfTo<JoystickInput>().AsSingle();
             Container.BindInterfacesTo<ECSStartup>().AsSingle().NonLazy();
         }
     }

@@ -13,6 +13,8 @@ namespace Core.ECS.Behaviours
             Entity.isPlayer = true;
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);
+            Entity.AddDirection(transform.forward);
+            Entity.AddMovable(_playerModel.MovementSpeed);
         }
     }
 }

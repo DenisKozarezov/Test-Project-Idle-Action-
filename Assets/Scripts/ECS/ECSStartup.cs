@@ -11,24 +11,20 @@ namespace Core.ECS
 
         public ECSStartup(
             IInputService inputSystem,
-            ILogService logger,
             IRegisterService<IViewController> collisionRegistry,
             ITimeService time,
             IPhysicsService physics,
-            IIdentifierService identifier,
-            DiContainer diContainer)
+            IIdentifierService identifier)
         {
             Contexts contexts = Contexts.sharedInstance;
 
             Services.Services allServices = new Services.Services
             {
-                Logger = logger,
                 Identifiers = identifier,
                 Time = time,
                 InputService = inputSystem,
                 Physics = physics,
                 CollisionRegistry = collisionRegistry,
-                DiContainer = diContainer
             };
 
             _allSystems = new AllSystems(contexts, allServices);

@@ -19,16 +19,16 @@ public static class GameComponentsLookup {
     public const int Id = 8;
     public const int Identifiers = 9;
     public const int Logger = 10;
-    public const int Moving = 11;
-    public const int Physics = 12;
-    public const int Player = 13;
-    public const int Position = 14;
-    public const int Rigidbody = 15;
-    public const int SpriteRenderer = 16;
-    public const int StoppedMoving = 17;
-    public const int Time = 18;
-    public const int Transform = 19;
-    public const int JoystickUI = 20;
+    public const int Movable = 11;
+    public const int Moving = 12;
+    public const int Physics = 13;
+    public const int Player = 14;
+    public const int Position = 15;
+    public const int Rigidbody = 16;
+    public const int SpriteRenderer = 17;
+    public const int StoppedMoving = 18;
+    public const int Time = 19;
+    public const int Transform = 20;
     public const int ViewController = 21;
     public const int DestroyedListener = 22;
     public const int DirectionListener = 23;
@@ -51,6 +51,7 @@ public static class GameComponentsLookup {
         "Id",
         "Identifiers",
         "Logger",
+        "Movable",
         "Moving",
         "Physics",
         "Player",
@@ -60,7 +61,6 @@ public static class GameComponentsLookup {
         "StoppedMoving",
         "Time",
         "Transform",
-        "JoystickUI",
         "ViewController",
         "DestroyedListener",
         "DirectionListener",
@@ -82,6 +82,7 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),
         typeof(Core.ECS.Components.Logger),
+        typeof(Core.ECS.Components.Movable),
         typeof(Core.ECS.Components.Moving),
         typeof(Core.ECS.Components.Physics),
         typeof(Core.ECS.Components.Player),
@@ -91,7 +92,6 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.StoppedMoving),
         typeof(Core.ECS.Components.Time),
         typeof(Core.ECS.Components.TransformComponent),
-        typeof(Core.ECS.Components.UI.JoystickUI),
         typeof(Core.ECS.Components.ViewControllerComponent),
         typeof(DestroyedListenerComponent),
         typeof(DirectionListenerComponent),

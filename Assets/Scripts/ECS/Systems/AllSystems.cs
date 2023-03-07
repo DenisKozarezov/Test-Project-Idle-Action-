@@ -7,10 +7,12 @@ namespace Core.ECS.Systems
         public AllSystems(Contexts contexts, Services.Services services) : base(nameof(GameplaySystems))
         {
             Add(new ServiceRegistrationSystems(contexts, services));
-            Add(new GameplaySystems(contexts, services));
+            Add(new GameplaySystems(contexts));
             Add(new UISystems(contexts));
             Add(new GameEventSystems(contexts));
             Add(new GameCleanupSystems(contexts));
+            Add(new InputEventSystems(contexts));
+            Add(new InputCleanupSystems(contexts));
         }
     }
 }
