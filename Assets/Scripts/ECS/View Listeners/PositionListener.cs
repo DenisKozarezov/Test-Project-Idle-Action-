@@ -1,5 +1,6 @@
 using UnityEngine;
 using Entitas;
+using UnityEngine.InputSystem.HID;
 
 namespace Core.ECS.ViewListeners
 {
@@ -24,12 +25,18 @@ namespace Core.ECS.ViewListeners
         public void OnPosition(GameEntity entity, Vector3 value)
         {
             Vector3 velocity = value - transform.position;
-            transform.position = value;
 
-            //if (_rigidbody == null || velocity == Vector3.zero)
-            //    transform.position = value;
-            //else
-            //    _rigidbody.velocity = velocity.SetY(_rigidbody.velocity.y);
+            if (_rigidbody == null || velocity == Vector3.zero)
+                transform.position = value;
+            else
+            {
+                //Vector3 forwardRelativeToSurfaceNormal = Vector3.Cross(transform.right, hit.normal);
+                _rigidbody.MovePosition(value);
+
+
+                //_rigidbody.velocity = Vector3.one;
+                //Debug.Log(velocity.SetY(0f) + " " +  _rigidbody.velocity);
+            }   
         }
         public void OnStoppedMoving(GameEntity entity)
         {

@@ -3,23 +3,31 @@ using Entitas;
 
 namespace Core.ECS.Systems.Player
 {
-    public sealed class PlayerStoppedMovingSystem : ReactiveSystem<GameEntity>
+    public sealed class PlayerStoppedMovingSystem : ReactiveSystem<InputEntity>
     {
-        public PlayerStoppedMovingSystem(GameContext game) : base(game) { }
+        private readonly IGroup<GameEntity> _players;
+        public PlayerStoppedMovingSystem(GameContext game, InputContext input) : base(input) 
+        {
+            _players = game.GetGroup(GameMatcher.Player);
+        }
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+        protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Moving.AddedOrRemoved());
+            return context.CreateCollector(InputMatcher.StoppedDragging.Added());
         }
-        protected override bool Filter(GameEntity entity)
+        protected override bool Filter(InputEntity entity)
         {
-            return entity.hasMovable;
+            return entity.isJoystick;
         }
-        protected override void Execute(List<GameEntity> entities)
+        protected override void Execute(List<InputEntity> entities)
         {
-            foreach (GameEntity entity in entities)
+            foreach (InputEntity entity in entities)
             {
-                entity.isStoppedMoving = !entity.isMoving;
+                foreach (GameEntity player in _players)
+                {
+                    player.isMoving = !entity.isStoppedDragging;
+                    player.isStoppedMoving = entity.isStoppedDragging;
+                }
             }
         }
     }

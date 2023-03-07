@@ -28,12 +28,8 @@ namespace Core.ECS.Behaviours
 
         public void OnDrag(PointerEventData eventData)
         {
-            Vector3 inputPosition = Camera.main.ScreenToWorldPoint(eventData.position);
-            Vector3 offset = inputPosition - gameObject.transform.position;
-
-            offset = new Vector3(offset.x, offset.y, 0);
-
-            _handle.rectTransform.position = _handle.rectTransform.position + Vector3.ClampMagnitude(offset, _moveRadius);
+            Vector2 offset = eventData.position - _handle.rectTransform.anchoredPosition;
+            _handle.rectTransform.anchoredPosition = _handle.rectTransform.anchoredPosition + Vector2.ClampMagnitude(offset, _moveRadius);
         }
         public void OnEndDrag(PointerEventData eventData)
         {

@@ -1,5 +1,5 @@
-using Entitas;
 using System.Collections.Generic;
+using Entitas;
 
 namespace Core.ECS.Systems.Input
 {
@@ -20,9 +20,9 @@ namespace Core.ECS.Systems.Input
         }
         protected override void Execute(List<InputEntity> entities)
         {
-            foreach (InputEntity entity in entities)
+            foreach (InputEntity joystick in entities)
             {
-                entity.isStoppedDragging = true;
+                joystick.isStoppedDragging = true;
             }
         }
     }
