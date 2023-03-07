@@ -8,40 +8,49 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int CollidedListener = 0;
-    public const int Animator = 1;
-    public const int Collided = 2;
-    public const int Collider = 3;
-    public const int CollisionRegistry = 4;
-    public const int Destroyed = 5;
-    public const int Direction = 6;
-    public const int Grounded = 7;
-    public const int Id = 8;
-    public const int Identifiers = 9;
-    public const int Logger = 10;
-    public const int Movable = 11;
-    public const int Moving = 12;
-    public const int Physics = 13;
-    public const int Player = 14;
-    public const int Position = 15;
-    public const int Rigidbody = 16;
-    public const int SpriteRenderer = 17;
-    public const int StoppedMoving = 18;
-    public const int Time = 19;
-    public const int Transform = 20;
-    public const int ViewController = 21;
-    public const int DestroyedListener = 22;
-    public const int DirectionListener = 23;
-    public const int GroundedListener = 24;
-    public const int MovingListener = 25;
-    public const int PositionListener = 26;
-    public const int StoppedMovingListener = 27;
+    public const int AttackingListener = 0;
+    public const int CollidedListener = 1;
+    public const int Animator = 2;
+    public const int Attacking = 3;
+    public const int CanBeCut = 4;
+    public const int Collided = 5;
+    public const int Collider = 6;
+    public const int CollisionRegistry = 7;
+    public const int Destroyed = 8;
+    public const int Direction = 9;
+    public const int Grounded = 10;
+    public const int Id = 11;
+    public const int Identifiers = 12;
+    public const int IsGrowing = 13;
+    public const int Logger = 14;
+    public const int Movable = 15;
+    public const int Moving = 16;
+    public const int Physics = 17;
+    public const int Player = 18;
+    public const int Position = 19;
+    public const int RegenerationTime = 20;
+    public const int Rigidbody = 21;
+    public const int SpriteRenderer = 22;
+    public const int StoppedMoving = 23;
+    public const int Time = 24;
+    public const int Transform = 25;
+    public const int Vegetation = 26;
+    public const int ViewController = 27;
+    public const int DestroyedListener = 28;
+    public const int DirectionListener = 29;
+    public const int GroundedListener = 30;
+    public const int MovingListener = 31;
+    public const int PositionListener = 32;
+    public const int StoppedMovingListener = 33;
 
-    public const int TotalComponents = 28;
+    public const int TotalComponents = 34;
 
     public static readonly string[] componentNames = {
+        "AttackingListener",
         "CollidedListener",
         "Animator",
+        "Attacking",
+        "CanBeCut",
         "Collided",
         "Collider",
         "CollisionRegistry",
@@ -50,17 +59,20 @@ public static class GameComponentsLookup {
         "Grounded",
         "Id",
         "Identifiers",
+        "IsGrowing",
         "Logger",
         "Movable",
         "Moving",
         "Physics",
         "Player",
         "Position",
+        "RegenerationTime",
         "Rigidbody",
         "SpriteRenderer",
         "StoppedMoving",
         "Time",
         "Transform",
+        "Vegetation",
         "ViewController",
         "DestroyedListener",
         "DirectionListener",
@@ -71,8 +83,11 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AttackingListenerComponent),
         typeof(CollidedListenerComponent),
         typeof(Core.ECS.Components.AnimatorComponent),
+        typeof(Core.ECS.Components.Attacking),
+        typeof(Core.ECS.Components.CanBeCut),
         typeof(Core.ECS.Components.Collided),
         typeof(Core.ECS.Components.ColliderComponent),
         typeof(Core.ECS.Components.CollisionRegistry),
@@ -81,17 +96,20 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.Grounded),
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),
+        typeof(Core.ECS.Components.IsGrowing),
         typeof(Core.ECS.Components.Logger),
         typeof(Core.ECS.Components.Movable),
         typeof(Core.ECS.Components.Moving),
         typeof(Core.ECS.Components.Physics),
         typeof(Core.ECS.Components.Player),
         typeof(Core.ECS.Components.Position),
+        typeof(Core.ECS.Components.RegenerationTime),
         typeof(Core.ECS.Components.RigidbodyComponent),
         typeof(Core.ECS.Components.SpriteRendererComponent),
         typeof(Core.ECS.Components.StoppedMoving),
         typeof(Core.ECS.Components.Time),
         typeof(Core.ECS.Components.TransformComponent),
+        typeof(Core.ECS.Components.Vegetation),
         typeof(Core.ECS.Components.ViewControllerComponent),
         typeof(DestroyedListenerComponent),
         typeof(DirectionListenerComponent),

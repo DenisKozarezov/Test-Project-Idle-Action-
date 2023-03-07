@@ -17,8 +17,6 @@ public abstract class EntityBehaviour : MonoBehaviour, IDisposable
 
         foreach (var listener in GetComponents<IEventListener>())
         {
-            if (listener.GetType() == this.GetType()) continue;
-
             listener.RegisterListeners(Entity);
         }
     }

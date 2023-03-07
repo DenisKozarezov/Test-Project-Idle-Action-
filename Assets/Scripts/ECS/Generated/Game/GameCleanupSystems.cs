@@ -12,5 +12,6 @@ public sealed class GameCleanupSystems : Feature {
         Add(new DestroyDestroyedGameSystem(contexts));
         Add(new RemoveStoppedMovingGameSystem(contexts));
         Add(new RemoveCollidedGameSystem(contexts));
+        Add(new RemoveAttackingGameSystem(contexts));
     }
 }

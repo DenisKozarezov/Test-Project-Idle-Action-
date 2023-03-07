@@ -11,6 +11,7 @@ namespace Core.ECS.Behaviours
         private void Start()
         {
             Entity.isPlayer = true;
+            Entity.AddAnimator(GetComponent<Animator>());
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);
             Entity.AddDirection(transform.forward);

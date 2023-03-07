@@ -9,9 +9,6 @@ namespace Core.ECS.ViewListeners
         private GameEntity _entity;
         private UnitAnimator _animator;
 
-        private Vector3 _currentVelocity;
-       // private float _currentVelocity;
-
         public void RegisterListeners(IEntity entity)
         {
             _entity = (GameEntity)entity;
@@ -25,11 +22,7 @@ namespace Core.ECS.ViewListeners
             _entity.RemoveMovingListener();
             _entity.RemoveStoppedMovingListener();
         }
-        public void OnMoving(GameEntity entity)
-        {
-            _currentVelocity = Vector3.SmoothDamp(_currentVelocity, entity.direction.Value, ref _currentVelocity, 0.2f);
-            _animator.PlayRun(new Vector2(_currentVelocity.x, _currentVelocity.y));
-        }
+        public void OnMoving(GameEntity entity) => _animator.PlayRun();
         public void OnStoppedMoving(GameEntity entity) => _animator.PlayIdle();
     }
 }

@@ -55,6 +55,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass 2
       objectReference: {fileID: 0}
+    - target: {fileID: 208722040781594615, guid: f325a4f8ff719314bbd3144e002446d7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532635542226072388, guid: f325a4f8ff719314bbd3144e002446d7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532635542226072388, guid: f325a4f8ff719314bbd3144e002446d7, type: 3}
+      propertyPath: m_Size.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532635542226072388, guid: f325a4f8ff719314bbd3144e002446d7, type: 3}
+      propertyPath: m_Center.z
+      value: -0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f325a4f8ff719314bbd3144e002446d7, type: 3}
 --- !u!4 &3971192357138421236 stripped

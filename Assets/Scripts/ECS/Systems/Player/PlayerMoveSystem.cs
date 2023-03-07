@@ -9,6 +9,9 @@ namespace Core.ECS.Systems.Player
         private readonly IGroup<GameEntity> _players;
         private readonly IGroup<InputEntity> _inputs;
 
+        private readonly int _movingLeftHash = Animator.StringToHash("MovingLeft");
+        private readonly int _movingRightHash = Animator.StringToHash("MovingRight");
+
         public PlayerMoveSystem(GameContext game, InputContext input)
         {
             _game = game;
@@ -23,6 +26,11 @@ namespace Core.ECS.Systems.Player
             player.ReplacePosition(newPosition);
             player.ReplaceDirection(direction);
         }
+        private void UpdateAnimationFloats(Animator animator, Vector3 direction)
+        {
+            animator.SetFloat(_movingLeftHash, direction.x, 0.1f, Time.deltaTime);
+            animator.SetFloat(_movingRightHash, direction.z, 0.1f, Time.deltaTime);
+        }
         public void Execute()
         {
             foreach (InputEntity input in _inputs)
@@ -32,6 +40,8 @@ namespace Core.ECS.Systems.Player
                     Vector2 touchOffset = input.touchOffset.Value.normalized;
                     Vector3 direction = new Vector3(touchOffset.x, 0f, touchOffset.y);
                     float speed = player.movable.Value;
+
+                    UpdateAnimationFloats(player.animator.Value, direction);
 
                     player.isMoving = direction.sqrMagnitude > 0f;
                     if (player.isMoving) Move(player, direction, speed);

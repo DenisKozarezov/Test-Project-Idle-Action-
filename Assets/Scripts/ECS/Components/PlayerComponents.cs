@@ -9,6 +9,8 @@ namespace Core.ECS.Components
     // Tags
     public sealed class Player : IComponent { }
 
+    [Event(Self), Cleanup(RemoveComponent)] public sealed class Attacking : IComponent { }
+
     // Input Keys
     [Unique, Input] public sealed class Joystick : IComponent { }
     [Input] public sealed class Dragging : IComponent { }
