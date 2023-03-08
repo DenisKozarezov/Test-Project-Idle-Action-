@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-using Core.Models;
 using Zenject;
+using Core.Models;
 
 namespace Core.ECS.Behaviours
 {
@@ -14,8 +14,7 @@ namespace Core.ECS.Behaviours
 
         private void Start()
         {
-            Entity.AddWheatStack(_config.WheatStackPrice);
-            Entity.AddRegenerationTime(_config.RegenerationTime);
+            Entity.AddWheatStack(_config.WheatStackPrice); 
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);
         }

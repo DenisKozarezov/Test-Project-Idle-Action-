@@ -64,6 +64,7 @@ MonoBehaviour:
   _triggeringLayers:
     serializedVersion: 2
     m_Bits: 64
+  _config: {fileID: 11400000, guid: afa2f332a4678df49ae47a33262b2721, type: 2}
 --- !u!1 &1229398488307398571
 GameObject:
   m_ObjectHideFlags: 0

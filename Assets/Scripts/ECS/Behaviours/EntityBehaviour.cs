@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using Entitas.VisualDebugging.Unity;
-using Core;
 using Core.ECS.ViewListeners;
 
 namespace Core.ECS.Behaviours
