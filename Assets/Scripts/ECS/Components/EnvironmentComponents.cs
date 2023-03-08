@@ -6,7 +6,7 @@ using Entitas.CodeGeneration.Attributes;
 namespace Core.ECS.Components
 {
     public sealed class Vegetation : IComponent { }
-    public sealed class CanBeCut : IComponent { }
+    public sealed class CanBeSliced : IComponent { }
     public sealed class IsGrowing : IComponent { public float Duration; }
     public sealed class RegenerationTime : IComponent { public float Value; }
 

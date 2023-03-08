@@ -15,7 +15,7 @@ namespace Core.ECS.Systems
 
         private void GenerateShatter(GameObject shatteredObj)
         {
-            shatteredObj.layer = 2;
+            shatteredObj.layer = Constants.IgnoreRaycastLayer;
             
             float factor = Random.Range(0f, 1f);
             Vector3 force = Vector3.Lerp(Vector3.up, Vector3.right, factor) * 5f;
@@ -61,13 +61,14 @@ namespace Core.ECS.Systems
             {
                 foreach (GameEntity player in _players)
                 {
-                    entity.isCanBeCut = false;
+                    entity.isCanBeSliced = false;
                     entity.ReplaceIsGrowing(entity.regenerationTime.Value);
 
+                    ref Vector3 slicePosition = ref entity.collisionContact.Point;
                     Transform transform = player.transform.Value;
                     player.isAttacking = true;
 
-                    SliceObject(entity, transform.position, transform.forward);
+                    SliceObject(entity, slicePosition, transform.forward);
                 }
             }
         } 

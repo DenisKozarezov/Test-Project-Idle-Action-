@@ -27,4 +27,5 @@ namespace Core.ECS.Components
     [Event(Self), Cleanup(DestroyEntity)] public sealed class Destroyed : IComponent { }
     [Event(Self), Cleanup(RemoveComponent)] public sealed class StoppedMoving : IComponent { }
     [Event(Self), Cleanup(RemoveComponent)] public sealed class Collided : IComponent { public int CollidedID; }
+    [Event(Self), Cleanup(RemoveComponent)] public sealed class CollisionContact : IComponent { public Vector3 Point; }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Entitas;
 using Core.ECS.Behaviours;
 
@@ -14,7 +15,7 @@ namespace Core.ECS.Systems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.CanBeCut.Removed());
+            return context.CreateCollector(GameMatcher.CanBeSliced.Removed());
         }
         protected override bool Filter(GameEntity entity)
         {
@@ -24,7 +25,7 @@ namespace Core.ECS.Systems
         {
             foreach (GameEntity entity in entities)
             {
-                var stack = _factory.Create(entity.position.Value);
+                var stack = _factory.Create(entity.collisionContact.Point + Vector3.up);
             }
         } 
     }

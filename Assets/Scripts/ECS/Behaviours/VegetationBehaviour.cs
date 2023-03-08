@@ -5,7 +5,7 @@ namespace Core.ECS.Behaviours
         private void Start()
         {
             Entity.isVegetation = true;
-            Entity.isCanBeCut = true;
+            Entity.isCanBeSliced = true;
             Entity.AddRegenerationTime(10f);
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);

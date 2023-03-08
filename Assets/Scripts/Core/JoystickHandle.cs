@@ -3,9 +3,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Core.ECS.Behaviours
+namespace Core
 {
-    public sealed class JoystickUIBehaviour : EntityBehaviour, IDragHandler, IEndDragHandler
+    public sealed class JoystickHandle : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [SerializeReference]
         private RawImage _placeholder;
@@ -13,8 +13,6 @@ namespace Core.ECS.Behaviours
         private RawImage _handle;
         [SerializeField, Range(0f, 5f)]
         private float _moveRadius;
-
-        private GameEntity _entity;
 
         private void Fade(bool isFade, float duration = 1f)
         {

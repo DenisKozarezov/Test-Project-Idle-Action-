@@ -7,6 +7,7 @@ namespace Core.ECS.Systems.Player
             Add(new PlayerMoveSystem(contexts.game, contexts.input));
             Add(new PlayerStoppedMovingSystem(contexts.game, contexts.input));
             Add(new PlayerCutVegetationSystem(contexts.game));
+            Add(new PlayerCollectingStacksSystem(contexts.game));
         }
     }
 }

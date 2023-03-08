@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Core.ECS.Components.CanBeCut canBeCutComponent = new Core.ECS.Components.CanBeCut();
+    static readonly Core.ECS.Components.CanBeSliced canBeSlicedComponent = new Core.ECS.Components.CanBeSliced();
 
-    public bool isCanBeCut {
-        get { return HasComponent(GameComponentsLookup.CanBeCut); }
+    public bool isCanBeSliced {
+        get { return HasComponent(GameComponentsLookup.CanBeSliced); }
         set {
-            if (value != isCanBeCut) {
-                var index = GameComponentsLookup.CanBeCut;
+            if (value != isCanBeSliced) {
+                var index = GameComponentsLookup.CanBeSliced;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : canBeCutComponent;
+                            : canBeSlicedComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCanBeCut;
+    static Entitas.IMatcher<GameEntity> _matcherCanBeSliced;
 
-    public static Entitas.IMatcher<GameEntity> CanBeCut {
+    public static Entitas.IMatcher<GameEntity> CanBeSliced {
         get {
-            if (_matcherCanBeCut == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CanBeCut);
+            if (_matcherCanBeSliced == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CanBeSliced);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCanBeCut = matcher;
+                _matcherCanBeSliced = matcher;
             }
 
-            return _matcherCanBeCut;
+            return _matcherCanBeSliced;
         }
     }
 }

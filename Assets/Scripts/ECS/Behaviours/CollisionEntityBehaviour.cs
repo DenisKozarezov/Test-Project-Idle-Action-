@@ -26,7 +26,10 @@ namespace Core.ECS.Behaviours
                   .Take(collision.GetInstanceID())
                   .Entity;
 
+                if (!Entity.isEnabled) return false;
+
                 Entity?.ReplaceCollided(entered.id.Value);
+                Entity?.ReplaceCollisionContact(collision.ClosestPointOnBounds(transform.position));
                 entered?.ReplaceCollided(Entity.id.Value);
                 return true;
             }

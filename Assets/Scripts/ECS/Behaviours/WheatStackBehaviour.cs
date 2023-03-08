@@ -14,7 +14,6 @@ namespace Core.ECS.Behaviours
 
         private void Start()
         {
-            Entity.isVegetation = true;
             Entity.AddWheatStack(_config.WheatStackPrice);
             Entity.AddRegenerationTime(_config.RegenerationTime);
             Entity.AddTransform(transform);
@@ -27,8 +26,9 @@ namespace Core.ECS.Behaviours
         }
         public void OnSpawned(Vector3 position, IMemoryPool pool)
         {
-            transform.position = position;
             _pool = pool;
+            transform.position = position;
+            gameObject.layer = Constants.VegetationLayer;
         }
         public override void Dispose() => _pool?.Despawn(this);
 
