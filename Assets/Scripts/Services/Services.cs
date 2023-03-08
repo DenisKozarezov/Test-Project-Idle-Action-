@@ -1,3 +1,4 @@
+using Zenject;
 using Core.ECS.ViewListeners;
 
 namespace Core.Services
@@ -9,5 +10,6 @@ namespace Core.Services
         public IInputService InputService;
         public IPhysicsService Physics;
         public IRegisterService<IViewController> CollisionRegistry;
+        public DiContainer DiContainer;
     }
 }

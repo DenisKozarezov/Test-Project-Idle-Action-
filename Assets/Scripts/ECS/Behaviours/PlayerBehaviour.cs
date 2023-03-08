@@ -6,7 +6,7 @@ namespace Core.ECS.Behaviours
     public sealed class PlayerBehaviour : EntityBehaviour
     {
         [SerializeField]
-        private PlayerModel _playerModel;
+        private GameConfig _config;
 
         private void Start()
         {
@@ -15,7 +15,9 @@ namespace Core.ECS.Behaviours
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);
             Entity.AddDirection(transform.forward);
-            Entity.AddMovable(_playerModel.MovementSpeed);
+            Entity.AddMovable(_config.MovementSpeed);
+            Entity.AddCurrentWheatStacks(0);
+            Entity.AddMaxWheatStacks(_config.MaxWheatStacks);
         }
     }
 }

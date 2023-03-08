@@ -1,24 +1,27 @@
 using System;
 using UnityEngine;
 using Entitas.VisualDebugging.Unity;
-using Core.ECS.ViewListeners;
 using Core;
+using Core.ECS.ViewListeners;
 
-public abstract class EntityBehaviour : MonoBehaviour, IDisposable
+namespace Core.ECS.Behaviours
 {
-    protected GameContext Game => ECSExtensions.Game();
-    public GameEntity Entity { get; private set; }
-    protected virtual void Awake()
+    public abstract class EntityBehaviour : MonoBehaviour, IDisposable
     {
-        Entity = Game.CreateEntity();
-
-        var controller = GetComponent<ViewController>() ?? gameObject.AddComponent<ViewController>();
-        controller.InitializeView(Game, Entity);
-
-        foreach (var listener in GetComponents<IEventListener>())
+        protected GameContext Game => ECSExtensions.Game();
+        public GameEntity Entity { get; private set; }
+        protected virtual void Awake()
         {
-            listener.RegisterListeners(Entity);
+            Entity = Game.CreateEntity();
+
+            var controller = GetComponent<ViewController>() ?? gameObject.AddComponent<ViewController>();
+            controller.InitializeView(Game, Entity);
+
+            foreach (var listener in GetComponents<IEventListener>())
+            {
+                listener.RegisterListeners(Entity);
+            }
         }
+        public virtual void Dispose() => gameObject.DestroyGameObject();
     }
-    public virtual void Dispose() => gameObject.DestroyGameObject();
 }

@@ -264,8 +264,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1008,8 +1008,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2339,7 +2339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7914270860267970405, guid: 2c2977c8ffd8dbf478299ca800d59605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.71
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 7914270860267970405, guid: 2c2977c8ffd8dbf478299ca800d59605, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4881,6 +4881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c186c59cd96efb4589aca6819228a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wheatStackPrefab: {fileID: 6937178273940906619, guid: 6d642e1e865102d489419f723c140d82, type: 3}
 --- !u!1001 &1953779060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5249,7 +5250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7914270860267970405, guid: 2c2977c8ffd8dbf478299ca800d59605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.82
+      value: -0.89
       objectReference: {fileID: 0}
     - target: {fileID: 7914270860267970405, guid: 2c2977c8ffd8dbf478299ca800d59605, type: 3}
       propertyPath: m_LocalPosition.z

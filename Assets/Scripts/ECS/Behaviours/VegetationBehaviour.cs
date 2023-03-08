@@ -8,6 +8,7 @@ namespace Core.ECS.Behaviours
             Entity.isCanBeCut = true;
             Entity.AddRegenerationTime(10f);
             Entity.AddTransform(transform);
+            Entity.AddPosition(transform.position);
         }
     }
 }
