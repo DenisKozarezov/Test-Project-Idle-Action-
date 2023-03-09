@@ -10,56 +10,61 @@ public static class GameComponentsLookup {
 
     public const int AnyStackObtainedListener = 0;
     public const int AttackingListener = 1;
-    public const int CollidedListener = 2;
-    public const int CollisionContactListener = 3;
-    public const int Animator = 4;
-    public const int Attacking = 5;
-    public const int CanBeSliced = 6;
-    public const int Collided = 7;
-    public const int Collider = 8;
-    public const int CollisionContact = 9;
-    public const int CollisionRegistry = 10;
-    public const int CurrentWheatStacks = 11;
-    public const int Destroyed = 12;
-    public const int Direction = 13;
-    public const int Grounded = 14;
-    public const int Id = 15;
-    public const int Identifiers = 16;
-    public const int IsGrowing = 17;
-    public const int Logger = 18;
-    public const int MaxWheatStacks = 19;
-    public const int Movable = 20;
-    public const int Moving = 21;
-    public const int Physics = 22;
-    public const int Player = 23;
-    public const int Position = 24;
-    public const int RegenerationTime = 25;
-    public const int Rigidbody = 26;
-    public const int SpriteRenderer = 27;
-    public const int StackObtained = 28;
-    public const int StoppedMoving = 29;
-    public const int Time = 30;
-    public const int Transform = 31;
-    public const int Vegetation = 32;
-    public const int ViewController = 33;
-    public const int WheatStack = 34;
-    public const int DestroyedListener = 35;
-    public const int DirectionListener = 36;
-    public const int GroundedListener = 37;
-    public const int MovingListener = 38;
-    public const int PositionListener = 39;
-    public const int StoppedMovingListener = 40;
+    public const int CollectedListener = 2;
+    public const int CollidedListener = 3;
+    public const int CollisionContactListener = 4;
+    public const int Animator = 5;
+    public const int Attacking = 6;
+    public const int CanBeSliced = 7;
+    public const int Collected = 8;
+    public const int Collided = 9;
+    public const int Collider = 10;
+    public const int CollisionContact = 11;
+    public const int CollisionRegistry = 12;
+    public const int CurrentWheatStacks = 13;
+    public const int Destroyed = 14;
+    public const int Direction = 15;
+    public const int GrabPoint = 16;
+    public const int Grounded = 17;
+    public const int Id = 18;
+    public const int Identifiers = 19;
+    public const int IsGrowing = 20;
+    public const int Logger = 21;
+    public const int MaxWheatStacks = 22;
+    public const int Movable = 23;
+    public const int Moving = 24;
+    public const int Physics = 25;
+    public const int Player = 26;
+    public const int Position = 27;
+    public const int RegenerationTime = 28;
+    public const int Rigidbody = 29;
+    public const int SpriteRenderer = 30;
+    public const int StackObtained = 31;
+    public const int StoppedMoving = 32;
+    public const int Time = 33;
+    public const int Transform = 34;
+    public const int Vegetation = 35;
+    public const int ViewController = 36;
+    public const int WheatStack = 37;
+    public const int DestroyedListener = 38;
+    public const int DirectionListener = 39;
+    public const int GroundedListener = 40;
+    public const int MovingListener = 41;
+    public const int PositionListener = 42;
+    public const int StoppedMovingListener = 43;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 44;
 
     public static readonly string[] componentNames = {
         "AnyStackObtainedListener",
         "AttackingListener",
+        "CollectedListener",
         "CollidedListener",
         "CollisionContactListener",
         "Animator",
         "Attacking",
         "CanBeSliced",
+        "Collected",
         "Collided",
         "Collider",
         "CollisionContact",
@@ -67,6 +72,7 @@ public static class GameComponentsLookup {
         "CurrentWheatStacks",
         "Destroyed",
         "Direction",
+        "GrabPoint",
         "Grounded",
         "Id",
         "Identifiers",
@@ -99,11 +105,13 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(AnyStackObtainedListenerComponent),
         typeof(AttackingListenerComponent),
+        typeof(CollectedListenerComponent),
         typeof(CollidedListenerComponent),
         typeof(CollisionContactListenerComponent),
         typeof(Core.ECS.Components.AnimatorComponent),
         typeof(Core.ECS.Components.Attacking),
         typeof(Core.ECS.Components.CanBeSliced),
+        typeof(Core.ECS.Components.Collected),
         typeof(Core.ECS.Components.Collided),
         typeof(Core.ECS.Components.ColliderComponent),
         typeof(Core.ECS.Components.CollisionContact),
@@ -111,6 +119,7 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.CurrentWheatStacks),
         typeof(Core.ECS.Components.Destroyed),
         typeof(Core.ECS.Components.Direction),
+        typeof(Core.ECS.Components.GrabPoint),
         typeof(Core.ECS.Components.Grounded),
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),

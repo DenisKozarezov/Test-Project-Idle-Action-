@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entitas;
 
 namespace Core.ECS.Systems
@@ -13,11 +12,11 @@ namespace Core.ECS.Systems
         }
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Collided.Added());
+            return context.CreateCollector(GameMatcher.Collided.AddedOrRemoved());
         }
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasWheatStack;
+            return entity.hasWheatStack && !entity.isCollected;
         }
         protected override void Execute(List<GameEntity> stacks)
         {
@@ -25,11 +24,13 @@ namespace Core.ECS.Systems
             {
                 foreach (GameEntity player in _players)
                 {
-                    stack.isDestroyed = true;
-                    stack.transform.Value.gameObject.layer = Constants.IgnoreRaycastLayer;
+                    byte newValue = (byte)(player.currentWheatStacks.Value + 1);
 
-                    int newValue = Math.Min(player.currentWheatStacks.Value + 1, player.maxWheatStacks.Value);
-                    player.ReplaceCurrentWheatStacks((byte)newValue);
+                    if (newValue >= player.maxWheatStacks.Value) continue;
+
+                    stack.isCollected = true;
+
+                    player.ReplaceCurrentWheatStacks(newValue);
                     player.isStackObtained = true;
                 }
             }

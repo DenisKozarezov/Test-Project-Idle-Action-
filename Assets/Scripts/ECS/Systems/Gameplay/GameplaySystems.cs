@@ -12,6 +12,7 @@ namespace Core.ECS.Systems
             Add(new InputSystems(contexts.input));
             Add(new PlayerSystems(contexts));
             Add(new VegetationDroppingStacksSystem(contexts.game, wheatFactory));
+            Add(new WheatStackObtainedSystem(contexts.game));
         }
     }
 }

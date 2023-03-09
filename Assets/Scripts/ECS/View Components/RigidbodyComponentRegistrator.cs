@@ -10,7 +10,6 @@ namespace Core.ECS.ViewComponentRegistrators
         public void Register(GameEntity entity)
         {
             entity.AddRigidbody(_rigidbody);
-            Destroy(this);
         }
     }
 }

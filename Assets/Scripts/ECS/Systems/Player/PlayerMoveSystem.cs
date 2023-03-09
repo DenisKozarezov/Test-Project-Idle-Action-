@@ -12,6 +12,8 @@ namespace Core.ECS.Systems.Player
         private readonly int _movingLeftHash = Animator.StringToHash("MovingLeft");
         private readonly int _movingRightHash = Animator.StringToHash("MovingRight");
 
+        private float deltaTime => _game.time.Value.DeltaTime;
+
         public PlayerMoveSystem(GameContext game, InputContext input)
         {
             _game = game;
@@ -22,14 +24,14 @@ namespace Core.ECS.Systems.Player
         private void Move(GameEntity player, Vector3 direction, float speed)
         {
             Vector3 currentPosition = player.rigidbody.Value.position;
-            Vector3 newPosition = currentPosition + direction * speed * _game.time.Value.DeltaTime;
+            Vector3 newPosition = currentPosition + direction * speed * deltaTime;
             player.ReplacePosition(newPosition);
             player.ReplaceDirection(direction);
         }
         private void UpdateAnimationFloats(Animator animator, Vector3 direction)
         {
-            animator.SetFloat(_movingLeftHash, direction.x, 0.1f, Time.deltaTime);
-            animator.SetFloat(_movingRightHash, direction.z, 0.1f, Time.deltaTime);
+            animator.SetFloat(_movingLeftHash, direction.x, 0.1f, deltaTime);
+            animator.SetFloat(_movingRightHash, direction.z, 0.1f, deltaTime);
         }
         public void Execute()
         {

@@ -11,7 +11,6 @@ namespace Core.ECS.Components
     public sealed class RegenerationTime : IComponent { public float Value; }
 
     public sealed class WheatStack : IComponent { public byte Price; }
-
-    [Event(Any), Cleanup(CleanupMode.RemoveComponent)]
-    public sealed class StackObtained : IComponent { }
+    [Event(Self)] public sealed class Collected : IComponent { }
+    [Event(Any), Cleanup(RemoveComponent)] public sealed class StackObtained : IComponent { }
 }

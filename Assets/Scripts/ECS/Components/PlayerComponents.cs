@@ -11,6 +11,7 @@ namespace Core.ECS.Components
 
     public sealed class CurrentWheatStacks : IComponent { public byte Value; }
     public sealed class MaxWheatStacks : IComponent { public byte Value; }
+    public sealed class GrabPoint : IComponent { public Transform Value; }
 
     [Event(Self), Cleanup(RemoveComponent)] public sealed class Attacking : IComponent { }
 

@@ -20,7 +20,7 @@ namespace Core.ECS.Systems
             float factor = Random.Range(0f, 1f);
             Vector3 force = Vector3.Lerp(Vector3.up, Vector3.right, factor) * 5f;
 
-            shatteredObj.AddComponent<SphereCollider>().isTrigger = true;
+            shatteredObj.AddComponent<SphereCollider>();
             shatteredObj.AddComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
             GameObject.Destroy(shatteredObj, 2f);
