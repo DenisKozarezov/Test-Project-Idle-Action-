@@ -31,7 +31,9 @@ namespace Core.ECS.ViewListeners
         private void RegisterViewComponents()
         {
             foreach (var registrator in GetComponents<IViewComponentRegistrator>())
+            {
                 registrator.Register(Entity);
+            }
 
             var spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null) Entity.AddSpriteRenderer(spriteRenderer);

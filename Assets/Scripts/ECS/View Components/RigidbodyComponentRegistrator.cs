@@ -7,6 +7,10 @@ namespace Core.ECS.ViewComponentRegistrators
         [SerializeField]
         private Rigidbody _rigidbody;
 
-        public void Register(GameEntity entity) => entity.AddRigidbody(_rigidbody);
+        public void Register(GameEntity entity)
+        {
+            entity.AddRigidbody(_rigidbody);
+            Destroy(this);
+        }
     }
 }
