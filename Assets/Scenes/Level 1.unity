@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
+  m_XDamping: 3
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
@@ -3215,7 +3215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.586
+      value: -0.724
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3223,31 +3223,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8357295
+      value: 0.8312944
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.05649696
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5491414
+      value: 0.5462278
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.08598177
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -10.828
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 66.616
+      value: 66.166
       objectReference: {fileID: 0}
     - target: {fileID: 4201503581178414, guid: bbb972e8372282f4093c9484693385fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 4.744
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbb972e8372282f4093c9484693385fd, type: 3}
@@ -5476,6 +5476,7 @@ GameObject:
   - component: {fileID: 1816926818}
   - component: {fileID: 1816926820}
   - component: {fileID: 1816926819}
+  - component: {fileID: 1816926821}
   m_Layer: 5
   m_Name: Coin Placeholder
   m_TagString: Untagged
@@ -5542,6 +5543,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816926817}
   m_CullTransparentMesh: 1
+--- !u!114 &1816926821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816926817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d013980bbc00e348a0ac28ed33b8387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 6676457}
 --- !u!1001 &1833732194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5680,7 +5694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c186c59cd96efb4589aca6819228a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheatStackPrefab: {fileID: 6937178273940906619, guid: 6d642e1e865102d489419f723c140d82, type: 3}
+  _config: {fileID: 11400000, guid: afa2f332a4678df49ae47a33262b2721, type: 2}
 --- !u!1 &1947905912
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,10 @@ namespace Core.ECS.Systems
             var wheatFactory = services.DiContainer.Resolve<WheatStackBehaviour.Factory>();
 
             Add(new InputSystems(contexts.input));
-            Add(new PlayerSystems(contexts));
+            Add(new PlayerSystems(contexts, services));
             Add(new VegetationDroppingStacksSystem(contexts.game, wheatFactory));
-            Add(new WheatStackObtainedSystem(contexts.game));
+            Add(new VegetationGrowthSystem(contexts.game));
+            Add(new WheatStacksFollowPlayerSystem(contexts.game));
         }
     }
 }

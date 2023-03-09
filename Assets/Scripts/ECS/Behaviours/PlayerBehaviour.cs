@@ -21,6 +21,8 @@ namespace Core.ECS.Behaviours
             Entity.AddCurrentWheatStacks(0);
             Entity.AddMaxWheatStacks(_config.MaxWheatStacks);
             Entity.AddGrabPoint(_grabPoint);
+            Entity.AddPotentialMoney(0);
+            Entity.AddCurrentMoney(0);
         }
     }
 }

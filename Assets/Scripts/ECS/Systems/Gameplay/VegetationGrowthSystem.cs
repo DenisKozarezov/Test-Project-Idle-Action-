@@ -1,16 +1,14 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Entitas;
 using Core.ECS.Behaviours;
 
 namespace Core.ECS.Systems
 {
-    public sealed class VegetationDroppingStacksSystem : ReactiveSystem<GameEntity>
+    public sealed class VegetationGrowthSystem : ReactiveSystem<GameEntity>
     {
-        private readonly WheatStackBehaviour.Factory _factory;
-        public VegetationDroppingStacksSystem(GameContext game, WheatStackBehaviour.Factory factory) : base(game)
+        public VegetationGrowthSystem(GameContext game) : base(game)
         {
-            _factory = factory;
+            
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -25,7 +23,7 @@ namespace Core.ECS.Systems
         {
             foreach (GameEntity entity in entities)
             {
-                _factory.Create(entity.collisionContact.Point + Vector3.up);
+                
             }
         } 
     }

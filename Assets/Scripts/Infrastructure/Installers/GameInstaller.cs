@@ -3,13 +3,14 @@ using Zenject;
 using Core.Services;
 using Core.ECS;
 using Core.ECS.Behaviours;
+using Core.Models;
 
 namespace Core.Infrastructure.Installers
 {
     internal sealed class GameInstaller : MonoInstaller
     {
         [SerializeReference]
-        private GameObject _wheatStackPrefab; 
+        private GameConfig _config;
 
         public override void InstallBindings()
         {
@@ -23,8 +24,8 @@ namespace Core.Infrastructure.Installers
         {
             Container.BindFactory<Vector3, WheatStackBehaviour, WheatStackBehaviour.Factory>()
                .FromMonoPoolableMemoryPool(x => x
-               .WithInitialSize(10)
-               .FromComponentInNewPrefab(_wheatStackPrefab)
+               .WithInitialSize(_config.WheatStacksPoolCapacity)
+               .FromComponentInNewPrefab(_config.WheatStackPrefab)
                .UnderTransformGroup("Wheat Stacks"));
         }
     }

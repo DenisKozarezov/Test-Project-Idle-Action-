@@ -32,6 +32,9 @@ namespace Core.ECS.Systems
 
                     player.ReplaceCurrentWheatStacks(newValue);
                     player.isStackObtained = true;
+
+                    int newPotentialMoney = player.currentWheatStacks.Value * stack.wheatStack.Price;
+                    player.ReplacePotentialMoney(newPotentialMoney);
                 }
             }
         } 

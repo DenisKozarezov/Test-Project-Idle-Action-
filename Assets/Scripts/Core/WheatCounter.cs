@@ -6,7 +6,7 @@ using Core.ECS.Behaviours;
 
 namespace Core.UI
 {
-    public sealed class WheatCounter : EntityBehaviour, IAnyStackObtainedListener
+    public sealed class WheatCounter : EntityBehaviour, IAnyStackObtainedListener, IAnyBroughtStacksListener
     {
         [SerializeReference]
         private TextMeshProUGUI _text;
@@ -26,10 +26,12 @@ namespace Core.UI
         public void RegisterListeners()
         {
             Entity.AddAnyStackObtainedListener(this);
+            Entity.AddAnyBroughtStacksListener(this);
         }
         public void UnregisterListeners()
         {
             Entity.RemoveAnyStackObtainedListener(this);
+            Entity.RemoveAnyBroughtStacksListener();
         }
         private void SetCounter(byte currentValue, byte maxValue)
         {
@@ -40,6 +42,12 @@ namespace Core.UI
             _background.fillAmount = fillAmount;
         }
         public void OnAnyStackObtained(GameEntity entity)
+        {
+            float fillAmount = (float)entity.currentWheatStacks.Value / entity.maxWheatStacks.Value;
+            SetFillAmount(fillAmount);
+            SetCounter(entity.currentWheatStacks.Value, entity.maxWheatStacks.Value);
+        }
+        public void OnAnyBroughtStacks(GameEntity entity)
         {
             float fillAmount = (float)entity.currentWheatStacks.Value / entity.maxWheatStacks.Value;
             SetFillAmount(fillAmount);
