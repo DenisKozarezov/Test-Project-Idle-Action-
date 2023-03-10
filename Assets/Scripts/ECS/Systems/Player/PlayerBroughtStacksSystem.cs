@@ -20,18 +20,18 @@ namespace Core.ECS.Systems
         {
             return entity.isPlayer;
         }
-        protected override void Execute(List<GameEntity> stacks)
+        protected override void Execute(List<GameEntity> entities)
         {
             foreach (GameEntity player in _players)
             {
-                if (player.potentialMoney.Value == 0) continue;
+                if (player.currentWheatStacks.Value == 0) continue;
 
                 int newValue = player.currentMoney.Value + player.potentialMoney.Value;
                 player.ReplaceCurrentMoney(newValue);
                 player.ReplacePotentialMoney(0);
                 player.ReplaceCurrentWheatStacks(0);
 
-                //_factory.Clear();
+                _factory.Clear();
             }
         }
     }

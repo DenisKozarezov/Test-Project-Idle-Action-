@@ -13,7 +13,7 @@ namespace Core.ECS.Behaviours
         private IMemoryPool _pool;
 
         protected override void Awake() { }
-        public override void Dispose() { }
+        public override void Dispose() => _pool?.Despawn(this);
         public void OnDespawned()
         {
             _pool = null;
