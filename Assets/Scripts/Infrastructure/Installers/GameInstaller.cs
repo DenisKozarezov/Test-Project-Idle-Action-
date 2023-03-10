@@ -22,11 +22,11 @@ namespace Core.Infrastructure.Installers
 
         private void BindPools()
         {
-            Container.BindFactory<Vector3, WheatStackBehaviour, WheatStackBehaviour.Factory>()
+            Container.BindFactoryCustomInterface<Vector3, WheatStackBehaviour, WheatStacksFactory, IWheatStacksFactory>()
                .FromMonoPoolableMemoryPool(x => x
                .WithInitialSize(_config.WheatStacksPoolCapacity)
                .FromComponentInNewPrefab(_config.WheatStackPrefab)
-               .UnderTransformGroup("Wheat Stacks"));
+               .UnderTransformGroup("Wheat Stacks Pool"));
         }
     }
 }

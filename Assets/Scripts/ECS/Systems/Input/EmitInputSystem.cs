@@ -27,11 +27,8 @@ namespace Core.ECS.Systems.Input
 
                 if (inputSystem.IsTouch)
                 {
-                    GameEntity gameEntity = ECSExtensions.Empty();
-                    gameEntity.ReplaceTouchClick(inputSystem.TouchPosition);
                     joystick.ReplaceTouchClick(inputSystem.TouchPosition);
                     joystick.ReplaceTouchOffset(inputSystem.TouchOffset);
-                    gameEntity.isDestroyed = true;
                 }
                 else joystick.ReplaceTouchOffset(Vector2.zero);
 

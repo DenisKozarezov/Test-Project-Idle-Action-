@@ -16,6 +16,5 @@ public sealed class GameCleanupSystems : Feature {
         Add(new RemoveStackObtainedGameSystem(contexts));
         Add(new RemoveAttackingGameSystem(contexts));
         Add(new RemoveBroughtStacksGameSystem(contexts));
-        Add(new RemoveTouchClickGameSystem(contexts));
     }
 }

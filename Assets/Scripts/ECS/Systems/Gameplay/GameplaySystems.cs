@@ -1,4 +1,3 @@
-using Core.ECS.Behaviours;
 using Core.ECS.Systems.Player;
 
 namespace Core.ECS.Systems
@@ -7,7 +6,7 @@ namespace Core.ECS.Systems
     {
         public GameplaySystems(Contexts contexts, Services.Services services) : base(nameof(GameplaySystems))
         {
-            var wheatFactory = services.DiContainer.Resolve<WheatStackBehaviour.Factory>();
+            var wheatFactory = services.DiContainer.Resolve<IWheatStacksFactory>();
 
             Add(new InputSystems(contexts.input));
             Add(new PlayerSystems(contexts, services));

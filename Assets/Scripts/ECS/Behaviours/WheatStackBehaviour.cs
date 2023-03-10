@@ -30,7 +30,5 @@ namespace Core.ECS.Behaviours
             Entity.AddTransform(transform);
             Entity.AddPosition(transform.position);
         }
-
-        public class Factory : PlaceholderFactory<Vector3, WheatStackBehaviour> { }
     }
 }

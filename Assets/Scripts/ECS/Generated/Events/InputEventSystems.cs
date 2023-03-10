@@ -10,6 +10,6 @@ public sealed class InputEventSystems : Feature {
 
     public InputEventSystems(Contexts contexts) {
         Add(new AnyStoppedDraggingEventSystem(contexts)); // priority: 0
-        Add(new InputAnyTouchClickEventSystem(contexts)); // priority: 0
+        Add(new AnyTouchClickEventSystem(contexts)); // priority: 0
     }
 }

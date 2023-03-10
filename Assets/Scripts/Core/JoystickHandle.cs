@@ -2,11 +2,10 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using Core.ECS.Behaviours;
 
 namespace Core
 {
-    public sealed class JoystickHandle : EntityBehaviour, IDragHandler, IEndDragHandler, IGameAnyTouchClickListener
+    public sealed class JoystickHandle : MonoBehaviour, IDragHandler, IEndDragHandler, IAnyTouchClickListener
     {
         [SerializeReference]
         private CanvasGroup _canvasGroup;
@@ -21,7 +20,7 @@ namespace Core
 
         private void Start()
         {
-            Entity.AddGameAnyTouchClickListener(this);
+            ECSExtensions.Input().joystickEntity.AddAnyTouchClickListener(this);
             Fade(true, 0f);
         }
         private void Fade(bool isFade, float duration = 1f)
@@ -48,7 +47,7 @@ namespace Core
             _handle.rectTransform.localPosition = Vector3.zero;
             Fade(true);
         }
-        public void OnAnyTouchClick(GameEntity entity, Vector2 position)
+        public void OnAnyTouchClick(InputEntity entity, Vector2 position)
         {
             if (!_alreadyTouched)
             {

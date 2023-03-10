@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using Core.ECS.Behaviours;
 
 namespace Core.ECS.Systems
 {
     public sealed class PlayerBroughtStacksSystem : ReactiveSystem<GameEntity>
     {
         private readonly IGroup<GameEntity> _players;
-        private readonly WheatStackBehaviour.Factory _factory;
-        public PlayerBroughtStacksSystem(GameContext game, WheatStackBehaviour.Factory factory) : base(game)
+        private readonly IWheatStacksFactory _factory;
+        public PlayerBroughtStacksSystem(GameContext game, IWheatStacksFactory factory) : base(game)
         {
             _players = game.GetGroup(GameMatcher.Player);
             _factory = factory;
