@@ -22,6 +22,6 @@ namespace Core.ECS.Components
     [Unique, Input] public sealed class Joystick : IComponent { }
     [Input] public sealed class Dragging : IComponent { }
     [Input] public sealed class TouchOffset : IComponent { public Vector2 Value; }
-    [Input, Event(Any), Cleanup(RemoveComponent)] public sealed class TouchClick : IComponent { }
+    [Game, Input, Event(Any), Cleanup(RemoveComponent)] public sealed class TouchClick : IComponent { public Vector2 Position; }
     [Input, Event(Any), Cleanup(RemoveComponent)] public sealed class StoppedDragging : IComponent { }
 }

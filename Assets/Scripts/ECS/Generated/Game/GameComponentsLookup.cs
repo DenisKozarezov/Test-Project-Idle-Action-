@@ -46,18 +46,20 @@ public static class GameComponentsLookup {
     public const int StackObtained = 35;
     public const int StoppedMoving = 36;
     public const int Time = 37;
-    public const int Transform = 38;
-    public const int Vegetation = 39;
-    public const int ViewController = 40;
-    public const int WheatStack = 41;
-    public const int DestroyedListener = 42;
-    public const int DirectionListener = 43;
-    public const int GroundedListener = 44;
-    public const int MovingListener = 45;
-    public const int PositionListener = 46;
-    public const int StoppedMovingListener = 47;
+    public const int TouchClick = 38;
+    public const int Transform = 39;
+    public const int Vegetation = 40;
+    public const int ViewController = 41;
+    public const int WheatStack = 42;
+    public const int DestroyedListener = 43;
+    public const int DirectionListener = 44;
+    public const int GameAnyTouchClickListener = 45;
+    public const int GroundedListener = 46;
+    public const int MovingListener = 47;
+    public const int PositionListener = 48;
+    public const int StoppedMovingListener = 49;
 
-    public const int TotalComponents = 48;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "AnyBroughtStacksListener",
@@ -98,12 +100,14 @@ public static class GameComponentsLookup {
         "StackObtained",
         "StoppedMoving",
         "Time",
+        "TouchClick",
         "Transform",
         "Vegetation",
         "ViewController",
         "WheatStack",
         "DestroyedListener",
         "DirectionListener",
+        "GameAnyTouchClickListener",
         "GroundedListener",
         "MovingListener",
         "PositionListener",
@@ -149,12 +153,14 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.StackObtained),
         typeof(Core.ECS.Components.StoppedMoving),
         typeof(Core.ECS.Components.Time),
+        typeof(Core.ECS.Components.TouchClick),
         typeof(Core.ECS.Components.TransformComponent),
         typeof(Core.ECS.Components.Vegetation),
         typeof(Core.ECS.Components.ViewControllerComponent),
         typeof(Core.ECS.Components.WheatStack),
         typeof(DestroyedListenerComponent),
         typeof(DirectionListenerComponent),
+        typeof(GameAnyTouchClickListenerComponent),
         typeof(GroundedListenerComponent),
         typeof(MovingListenerComponent),
         typeof(PositionListenerComponent),

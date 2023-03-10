@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Core.Services
 {
-    public sealed class JoystickInput : IInputService, IInitializable, ITickable, ILateDisposable
+    public sealed class JoystickInput : IInputService, IInitializable, ILateDisposable
     {
         private readonly PlayerControls _playerControls;
 
@@ -13,7 +13,7 @@ namespace Core.Services
         public bool IsDragging => IsTouch && TouchOffset != Vector2.zero;
         public bool IsTouch => _playerControls.Player.TouchPress.IsPressed();
         public Vector2 TouchPosition => _playerControls.Player.TouchPosition.ReadValue<Vector2>();
-        public Vector2 TouchOffset { get; set; }
+        public Vector2 TouchOffset => TouchPosition - _oldPosition;
 
         public JoystickInput() 
         {
@@ -24,13 +24,6 @@ namespace Core.Services
         public void Enable() => _playerControls.Enable();
         public void Disable() => _playerControls.Disable();
         public void Initialize() => Enable();
-        public void Tick()
-        {
-            if (IsTouch)
-                TouchOffset = TouchPosition - _oldPosition;
-            else
-                TouchOffset = Vector2.zero;
-        }
         public void LateDispose() => Disable();
     }
 }

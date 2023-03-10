@@ -9,13 +9,13 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class RemoveTouchClickInputSystem : ICleanupSystem {
+public sealed class RemoveTouchClickGameSystem : ICleanupSystem {
 
-    readonly IGroup<InputEntity> _group;
-    readonly List<InputEntity> _buffer = new List<InputEntity>();
+    readonly IGroup<GameEntity> _group;
+    readonly List<GameEntity> _buffer = new List<GameEntity>();
 
-    public RemoveTouchClickInputSystem(Contexts contexts) {
-        _group = contexts.input.GetGroup(InputMatcher.TouchClick);
+    public RemoveTouchClickGameSystem(Contexts contexts) {
+        _group = contexts.game.GetGroup(GameMatcher.TouchClick);
     }
 
     public void Cleanup() {
