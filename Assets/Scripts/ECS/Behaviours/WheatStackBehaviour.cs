@@ -16,7 +16,7 @@ namespace Core.ECS.Behaviours
         public override void Dispose() { }
         public void OnDespawned()
         {
-            _pool = null;       
+            _pool = null;
         }
         public void OnSpawned(Vector3 position, IMemoryPool pool)
         {

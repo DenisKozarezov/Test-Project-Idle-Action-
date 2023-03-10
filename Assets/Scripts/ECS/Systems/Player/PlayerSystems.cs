@@ -10,6 +10,7 @@ namespace Core.ECS.Systems.Player
 
             Add(new PlayerMoveSystem(contexts.game, contexts.input));
             Add(new PlayerStoppedMovingSystem(contexts.game, contexts.input));
+            Add(new PlayerAttackSystem(contexts.game));
             Add(new PlayerCutVegetationSystem(contexts.game));
             Add(new PlayerCollectingStacksSystem(contexts.game));
             Add(new PlayerBroughtStacksSystem(contexts.game, wheatFactory));

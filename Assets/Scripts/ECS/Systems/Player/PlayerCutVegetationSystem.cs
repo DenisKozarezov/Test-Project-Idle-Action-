@@ -66,7 +66,6 @@ namespace Core.ECS.Systems
 
                     ref Vector3 slicePosition = ref entity.collisionContact.Point;
                     Transform transform = player.transform.Value;
-                    player.isAttacking = true;
 
                     SliceObject(entity, slicePosition, transform.forward);
                 }

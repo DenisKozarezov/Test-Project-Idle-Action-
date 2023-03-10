@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Core.Units
@@ -15,7 +16,19 @@ namespace Core.Units
 
         public void PlayRun() => _animator.SetBool(_runningHash, true);
         public void PlayGrounded() => _animator.SetBool(_onGroundHash, true);
-        public void PlayAttack() => _animator.SetBool(_attackingHash, true);
+        public void PlayAttack()
+        {
+            if (_animator.GetBool(_attackingHash)) 
+                StopCoroutine(AttackCoroutine());
+            else
+                StartCoroutine(AttackCoroutine());
+        }
+        private IEnumerator AttackCoroutine()
+        {
+            _animator.SetBool(_attackingHash, true);
+            yield return new WaitForSeconds(1f);
+            _animator.SetBool(_attackingHash, false);
+        }
         public void PlayIdle()
         {
             _animator.SetFloat(_movingLeftHash, 0f);
