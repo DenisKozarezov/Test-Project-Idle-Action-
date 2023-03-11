@@ -15,6 +15,7 @@ namespace Core.ECS.ViewListeners
             _game = game;
             Entity = (GameEntity)entity;
             Entity.AddViewController(this);
+            Entity.AddId(_game.identifiers.Value.Next());
 
             AddDestroyedListener();
             RegisterViewComponents();
@@ -24,14 +25,14 @@ namespace Core.ECS.ViewListeners
 
         private void Start()
         {
-            Entity.AddId(_game.identifiers.Value.Next());
             RegisterCollisions();
         }
-
         private void RegisterViewComponents()
         {
             foreach (var registrator in GetComponents<IViewComponentRegistrator>())
+            {
                 registrator.Register(Entity);
+            }
 
             var spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null) Entity.AddSpriteRenderer(spriteRenderer);
@@ -59,7 +60,6 @@ namespace Core.ECS.ViewListeners
             foreach (Collider collider in GetComponentsInChildren<Collider>())
                 _game.collisionRegistry.Value.Unregister(collider.GetInstanceID());
         }
-
         public void Dispose()
         {
             UnregisterCollisions();

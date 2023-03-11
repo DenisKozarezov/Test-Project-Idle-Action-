@@ -20,7 +20,9 @@ namespace Core.Services
         public void Unregister(int instanceId)
         {
             if (_allControllersById.ContainsKey(instanceId))
+            {
                 _allControllersById.Remove(instanceId);
+            }
         }
         public IViewController Take(int key)
         {

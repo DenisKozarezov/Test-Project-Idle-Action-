@@ -5,8 +5,6 @@ using Core.ECS.ViewListeners;
 
 namespace Core.ECS.Components
 {
-    [Unique] public sealed class Logger : IComponent { public ILogService Value; }
-    //[Unique] public sealed class ViewCreator : IComponent, IService { public IViewService Value; }
     [Unique] public sealed class Time : IComponent { public ITimeService Value; }
     [Unique] public sealed class Physics : IComponent { public IPhysicsService Value; }
     [Unique] public sealed class CollisionRegistry : IComponent { public IRegisterService<IViewController> Value; }

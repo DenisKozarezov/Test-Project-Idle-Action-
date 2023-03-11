@@ -8,78 +8,100 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int AnyStackObtainedListener = 0;
-    public const int AttackingListener = 1;
-    public const int CollidedListener = 2;
-    public const int CollisionContactListener = 3;
-    public const int Animator = 4;
-    public const int Attacking = 5;
-    public const int CanBeSliced = 6;
-    public const int Collided = 7;
-    public const int Collider = 8;
-    public const int CollisionContact = 9;
-    public const int CollisionRegistry = 10;
-    public const int CurrentWheatStacks = 11;
-    public const int Destroyed = 12;
-    public const int Direction = 13;
-    public const int Grounded = 14;
-    public const int Id = 15;
-    public const int Identifiers = 16;
-    public const int IsGrowing = 17;
-    public const int Logger = 18;
-    public const int MaxWheatStacks = 19;
-    public const int Movable = 20;
-    public const int Moving = 21;
-    public const int Physics = 22;
-    public const int Player = 23;
-    public const int Position = 24;
-    public const int RegenerationTime = 25;
-    public const int Rigidbody = 26;
-    public const int SpriteRenderer = 27;
-    public const int StackObtained = 28;
-    public const int StoppedMoving = 29;
-    public const int Time = 30;
-    public const int Transform = 31;
-    public const int Vegetation = 32;
-    public const int ViewController = 33;
-    public const int WheatStack = 34;
-    public const int DestroyedListener = 35;
-    public const int DirectionListener = 36;
-    public const int GroundedListener = 37;
-    public const int MovingListener = 38;
-    public const int PositionListener = 39;
-    public const int StoppedMovingListener = 40;
+    public const int AnyBroughtStacksListener = 0;
+    public const int AnySoldListener = 1;
+    public const int AnyStackObtainedListener = 2;
+    public const int AttackingListener = 3;
+    public const int CollectedListener = 4;
+    public const int CollidedListener = 5;
+    public const int CollisionContactListener = 6;
+    public const int Animator = 7;
+    public const int Attacking = 8;
+    public const int BroughtStacks = 9;
+    public const int CanBeSliced = 10;
+    public const int Collected = 11;
+    public const int CollectingPoint = 12;
+    public const int Collided = 13;
+    public const int Collider = 14;
+    public const int CollisionContact = 15;
+    public const int CollisionRegistry = 16;
+    public const int CurrentMoney = 17;
+    public const int CurrentWheatStacks = 18;
+    public const int Destroyed = 19;
+    public const int Direction = 20;
+    public const int Grabbed = 21;
+    public const int GrabPoint = 22;
+    public const int Grounded = 23;
+    public const int Id = 24;
+    public const int Identifiers = 25;
+    public const int IsGrowing = 26;
+    public const int MaxWheatStacks = 27;
+    public const int MoneyCounter = 28;
+    public const int Movable = 29;
+    public const int Moving = 30;
+    public const int Physics = 31;
+    public const int Player = 32;
+    public const int Position = 33;
+    public const int PotentialMoney = 34;
+    public const int RegenerationTime = 35;
+    public const int Rigidbody = 36;
+    public const int Sold = 37;
+    public const int SpriteRenderer = 38;
+    public const int StackObtained = 39;
+    public const int StoppedMoving = 40;
+    public const int Time = 41;
+    public const int Transform = 42;
+    public const int Vegetation = 43;
+    public const int ViewController = 44;
+    public const int WheatStack = 45;
+    public const int DestroyedListener = 46;
+    public const int DirectionListener = 47;
+    public const int GroundedListener = 48;
+    public const int MovingListener = 49;
+    public const int PositionListener = 50;
+    public const int StoppedMovingListener = 51;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 52;
 
     public static readonly string[] componentNames = {
+        "AnyBroughtStacksListener",
+        "AnySoldListener",
         "AnyStackObtainedListener",
         "AttackingListener",
+        "CollectedListener",
         "CollidedListener",
         "CollisionContactListener",
         "Animator",
         "Attacking",
+        "BroughtStacks",
         "CanBeSliced",
+        "Collected",
+        "CollectingPoint",
         "Collided",
         "Collider",
         "CollisionContact",
         "CollisionRegistry",
+        "CurrentMoney",
         "CurrentWheatStacks",
         "Destroyed",
         "Direction",
+        "Grabbed",
+        "GrabPoint",
         "Grounded",
         "Id",
         "Identifiers",
         "IsGrowing",
-        "Logger",
         "MaxWheatStacks",
+        "MoneyCounter",
         "Movable",
         "Moving",
         "Physics",
         "Player",
         "Position",
+        "PotentialMoney",
         "RegenerationTime",
         "Rigidbody",
+        "Sold",
         "SpriteRenderer",
         "StackObtained",
         "StoppedMoving",
@@ -97,33 +119,44 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnyBroughtStacksListenerComponent),
+        typeof(AnySoldListenerComponent),
         typeof(AnyStackObtainedListenerComponent),
         typeof(AttackingListenerComponent),
+        typeof(CollectedListenerComponent),
         typeof(CollidedListenerComponent),
         typeof(CollisionContactListenerComponent),
         typeof(Core.ECS.Components.AnimatorComponent),
         typeof(Core.ECS.Components.Attacking),
+        typeof(Core.ECS.Components.BroughtStacks),
         typeof(Core.ECS.Components.CanBeSliced),
+        typeof(Core.ECS.Components.Collected),
+        typeof(Core.ECS.Components.CollectingPoint),
         typeof(Core.ECS.Components.Collided),
         typeof(Core.ECS.Components.ColliderComponent),
         typeof(Core.ECS.Components.CollisionContact),
         typeof(Core.ECS.Components.CollisionRegistry),
+        typeof(Core.ECS.Components.CurrentMoney),
         typeof(Core.ECS.Components.CurrentWheatStacks),
         typeof(Core.ECS.Components.Destroyed),
         typeof(Core.ECS.Components.Direction),
+        typeof(Core.ECS.Components.Grabbed),
+        typeof(Core.ECS.Components.GrabPoint),
         typeof(Core.ECS.Components.Grounded),
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),
         typeof(Core.ECS.Components.IsGrowing),
-        typeof(Core.ECS.Components.Logger),
         typeof(Core.ECS.Components.MaxWheatStacks),
+        typeof(Core.ECS.Components.MoneyCounter),
         typeof(Core.ECS.Components.Movable),
         typeof(Core.ECS.Components.Moving),
         typeof(Core.ECS.Components.Physics),
         typeof(Core.ECS.Components.Player),
         typeof(Core.ECS.Components.Position),
+        typeof(Core.ECS.Components.PotentialMoney),
         typeof(Core.ECS.Components.RegenerationTime),
         typeof(Core.ECS.Components.RigidbodyComponent),
+        typeof(Core.ECS.Components.Sold),
         typeof(Core.ECS.Components.SpriteRendererComponent),
         typeof(Core.ECS.Components.StackObtained),
         typeof(Core.ECS.Components.StoppedMoving),

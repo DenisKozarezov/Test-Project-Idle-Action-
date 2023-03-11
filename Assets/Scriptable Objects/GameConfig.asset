@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RegenerationTime>k__BackingField: 10
   <MaxWheatStacks>k__BackingField: 40
+  <WheatStacksPoolCapacity>k__BackingField: 10
   <WheatStackPrice>k__BackingField: 15
+  <WheatStackPrefab>k__BackingField: {fileID: 6937178273940906619, guid: 6d642e1e865102d489419f723c140d82, type: 3}
   <MovementSpeed>k__BackingField: 3
+  <CoinPrefab>k__BackingField: {fileID: 4537867183863378762, guid: 71417d58c6795104697c470e92bd5a8f, type: 3}

@@ -1,7 +1,8 @@
-﻿using Entitas;
+﻿using UnityEngine;
+using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
-using Entitas.CodeGeneration.Attributes;
 
 namespace Core.ECS.Components
 {
@@ -9,9 +10,12 @@ namespace Core.ECS.Components
     public sealed class CanBeSliced : IComponent { }
     public sealed class IsGrowing : IComponent { public float Duration; }
     public sealed class RegenerationTime : IComponent { public float Value; }
+    public sealed class CollectingPoint : IComponent { public Transform Value; }
+    public sealed class MoneyCounter : IComponent { }
 
     public sealed class WheatStack : IComponent { public byte Price; }
-
-    [Event(Any), Cleanup(CleanupMode.RemoveComponent)]
-    public sealed class StackObtained : IComponent { }
+    public sealed class Grabbed : IComponent { }
+    [Event(Self)] public sealed class Collected : IComponent { }
+    [Event(Any), Cleanup(RemoveComponent)] public sealed class Sold : IComponent { }
+    [Event(Any), Cleanup(RemoveComponent)] public sealed class StackObtained : IComponent { }
 }

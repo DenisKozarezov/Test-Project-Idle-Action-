@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
-using Core.ECS.Behaviours;
 
 namespace Core.ECS.Systems
 {
     public sealed class VegetationDroppingStacksSystem : ReactiveSystem<GameEntity>
     {
-        private readonly WheatStackBehaviour.Factory _factory;
-        public VegetationDroppingStacksSystem(GameContext game, WheatStackBehaviour.Factory factory) : base(game)
+        private readonly IWheatStacksFactory _factory;
+        public VegetationDroppingStacksSystem(GameContext game, IWheatStacksFactory factory) : base(game)
         {
             _factory = factory;
         }
@@ -25,7 +24,7 @@ namespace Core.ECS.Systems
         {
             foreach (GameEntity entity in entities)
             {
-                var stack = _factory.Create(entity.collisionContact.Point + Vector3.up);
+                _factory.Create(entity.collisionContact.Point + Vector3.up);
             }
         } 
     }

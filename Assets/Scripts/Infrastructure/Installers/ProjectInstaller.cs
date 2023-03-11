@@ -8,7 +8,6 @@ namespace Core.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<ILogService>().To<UnityDebugLogService>().AsSingle().NonLazy();
             Container.Bind<IRegisterService<IViewController>>().To<UnityCollisionRegistry>().AsSingle().NonLazy();
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle().NonLazy();
             Container.Bind<IPhysicsService>().To<UnityPhysicsService>().AsSingle().NonLazy();

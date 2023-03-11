@@ -5,8 +5,10 @@ namespace Core.ECS.Behaviours
 {
     public sealed class PlayerBehaviour : EntityBehaviour
     {
-        [SerializeField]
+        [SerializeReference]
         private GameConfig _config;
+        [SerializeReference]
+        private Transform _grabPoint;
 
         private void Start()
         {
@@ -18,6 +20,9 @@ namespace Core.ECS.Behaviours
             Entity.AddMovable(_config.MovementSpeed);
             Entity.AddCurrentWheatStacks(0);
             Entity.AddMaxWheatStacks(_config.MaxWheatStacks);
+            Entity.AddGrabPoint(_grabPoint);
+            Entity.AddPotentialMoney(0);
+            Entity.AddCurrentMoney(0);
         }
     }
 }

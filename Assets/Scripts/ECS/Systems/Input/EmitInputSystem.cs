@@ -1,3 +1,4 @@
+using UnityEngine;
 using Entitas;
 using Core.Services;
 
@@ -24,9 +25,14 @@ namespace Core.ECS.Systems.Input
             {
                 IInputService inputSystem = _inputContext.input.Value;
 
-                joystick.isTouchClick = inputSystem.IsTouch;
+                if (inputSystem.IsTouch)
+                {
+                    joystick.ReplaceTouchClick(inputSystem.TouchPosition);
+                    joystick.ReplaceTouchOffset(inputSystem.TouchOffset);
+                }
+                else joystick.ReplaceTouchOffset(Vector2.zero);
+
                 joystick.isDragging = inputSystem.IsDragging;
-                joystick.ReplaceTouchOffset(inputSystem.TouchOffset);
             }
         }
     }

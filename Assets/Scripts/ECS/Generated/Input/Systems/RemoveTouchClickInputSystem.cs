@@ -20,7 +20,7 @@ public sealed class RemoveTouchClickInputSystem : ICleanupSystem {
 
     public void Cleanup() {
         foreach (var e in _group.GetEntities(_buffer)) {
-            e.isTouchClick = false;
+            e.RemoveTouchClick();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Core.ECS.Behaviours
     {
         protected GameContext Game => ECSExtensions.Game();
         public GameEntity Entity { get; private set; }
+
         protected virtual void Awake()
         {
             Entity = Game.CreateEntity();

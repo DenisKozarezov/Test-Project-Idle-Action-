@@ -12,26 +12,23 @@ namespace Core.ECS.Behaviours
 
         private IMemoryPool _pool;
 
-        private void Start()
-        {
-            Entity.AddWheatStack(_config.WheatStackPrice); 
-            Entity.AddTransform(transform);
-            Entity.AddPosition(transform.position);
-        }
-
+        protected override void Awake() { }
+        public override void Dispose() => _pool?.Despawn(this);
         public void OnDespawned()
         {
             _pool = null;
         }
         public void OnSpawned(Vector3 position, IMemoryPool pool)
         {
+            base.Awake();
             _pool = pool;
             transform.position = position;
             gameObject.layer = Constants.VegetationLayer;
+            Entity.rigidbody.Value.useGravity = true;
+            Entity.rigidbody.Value.constraints = RigidbodyConstraints.FreezeRotation;
+            Entity.AddWheatStack(_config.WheatStackPrice);
+            Entity.AddTransform(transform);
+            Entity.AddPosition(transform.position);
         }
-        public override void Dispose() => _pool?.Despawn(this);
-
-
-        public class Factory : PlaceholderFactory<Vector3, WheatStackBehaviour> { }
     }
 }

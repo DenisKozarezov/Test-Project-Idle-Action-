@@ -10,6 +10,8 @@ public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
         Add(new AttackingEventSystem(contexts)); // priority: 0
+        Add(new AnyBroughtStacksEventSystem(contexts)); // priority: 0
+        Add(new CollectedEventSystem(contexts)); // priority: 0
         Add(new CollidedEventSystem(contexts)); // priority: 0
         Add(new CollisionContactEventSystem(contexts)); // priority: 0
         Add(new DestroyedEventSystem(contexts)); // priority: 0
@@ -17,6 +19,7 @@ public sealed class GameEventSystems : Feature {
         Add(new GroundedEventSystem(contexts)); // priority: 0
         Add(new MovingEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
+        Add(new AnySoldEventSystem(contexts)); // priority: 0
         Add(new AnyStackObtainedEventSystem(contexts)); // priority: 0
         Add(new StoppedMovingEventSystem(contexts)); // priority: 0
     }

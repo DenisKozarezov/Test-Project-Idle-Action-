@@ -25,17 +25,17 @@ public sealed class AnyTouchClickEventSystem : Entitas.ReactiveSystem<InputEntit
     }
 
     protected override bool Filter(InputEntity entity) {
-        return entity.isTouchClick;
+        return entity.hasTouchClick;
     }
 
     protected override void Execute(System.Collections.Generic.List<InputEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.touchClick;
             foreach (var listenerEntity in _listeners.GetEntities(_entityBuffer)) {
                 _listenerBuffer.Clear();
                 _listenerBuffer.AddRange(listenerEntity.anyTouchClickListener.value);
                 foreach (var listener in _listenerBuffer) {
-                    listener.OnAnyTouchClick(e);
+                    listener.OnAnyTouchClick(e, component.Position);
                 }
             }
         }

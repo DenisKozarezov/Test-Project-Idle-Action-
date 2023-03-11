@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly Core.ECS.Components.TouchClick touchClickComponent = new Core.ECS.Components.TouchClick();
+    public Core.ECS.Components.TouchClick touchClick { get { return (Core.ECS.Components.TouchClick)GetComponent(InputComponentsLookup.TouchClick); } }
+    public bool hasTouchClick { get { return HasComponent(InputComponentsLookup.TouchClick); } }
 
-    public bool isTouchClick {
-        get { return HasComponent(InputComponentsLookup.TouchClick); }
-        set {
-            if (value != isTouchClick) {
-                var index = InputComponentsLookup.TouchClick;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : touchClickComponent;
+    public void AddTouchClick(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.TouchClick;
+        var component = (Core.ECS.Components.TouchClick)CreateComponent(index, typeof(Core.ECS.Components.TouchClick));
+        component.Position = newPosition;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceTouchClick(UnityEngine.Vector2 newPosition) {
+        var index = InputComponentsLookup.TouchClick;
+        var component = (Core.ECS.Components.TouchClick)CreateComponent(index, typeof(Core.ECS.Components.TouchClick));
+        component.Position = newPosition;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveTouchClick() {
+        RemoveComponent(InputComponentsLookup.TouchClick);
     }
 }
 

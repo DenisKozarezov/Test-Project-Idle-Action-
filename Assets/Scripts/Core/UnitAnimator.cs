@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Core.Units
@@ -12,10 +13,28 @@ namespace Core.Units
 
         [SerializeField]
         private Animator _animator;
+        [SerializeField]
+        private GameObject _scythe;
+
+        private void Awake() => _scythe.SetActive(false);
 
         public void PlayRun() => _animator.SetBool(_runningHash, true);
         public void PlayGrounded() => _animator.SetBool(_onGroundHash, true);
-        public void PlayAttack() => _animator.SetBool(_attackingHash, true);
+        public void PlayAttack()
+        {
+            if (_animator.GetBool(_attackingHash)) 
+                StopCoroutine(AttackCoroutine());
+            else
+                StartCoroutine(AttackCoroutine());
+        }
+        private IEnumerator AttackCoroutine()
+        {
+            _scythe.SetActive(true);
+            _animator.SetBool(_attackingHash, true);
+            yield return new WaitForSeconds(1.3f);
+            _scythe.SetActive(false);
+            _animator.SetBool(_attackingHash, false);
+        }
         public void PlayIdle()
         {
             _animator.SetFloat(_movingLeftHash, 0f);

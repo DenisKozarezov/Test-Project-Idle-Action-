@@ -20,14 +20,14 @@ namespace Core.ECS.Systems
             float factor = Random.Range(0f, 1f);
             Vector3 force = Vector3.Lerp(Vector3.up, Vector3.right, factor) * 5f;
 
-            shatteredObj.AddComponent<SphereCollider>().isTrigger = true;
+            shatteredObj.AddComponent<SphereCollider>();
             shatteredObj.AddComponent<Rigidbody>().AddForce(force, ForceMode.VelocityChange);
 
             GameObject.Destroy(shatteredObj, 2f);
         }
-        private void SliceObject(GameEntity entity, Vector3 slicePosition, Vector3 sliceDirection)
+        private void SliceObject(Transform transform, Vector3 slicePosition, Vector3 sliceDirection)
         {
-            foreach (var slice in entity.transform.Value.GetComponentsInChildren<MeshFilter>())
+            foreach (var slice in transform.GetComponentsInChildren<MeshFilter>())
             {
                 GameObject source = slice.gameObject;
                 SlicedHull hull = source.Slice(slicePosition, sliceDirection);
@@ -40,9 +40,7 @@ namespace Core.ECS.Systems
 
                     GameObject lowerHull = hull.CreateLowerHull(source);
                     lowerHull.transform.localPosition = slicePosition;
-                    GenerateShatter(lowerHull);
-
-                    entity.isDestroyed = true;
+                    GenerateShatter(lowerHull);                
                 }
             }
         }
@@ -66,9 +64,8 @@ namespace Core.ECS.Systems
 
                     ref Vector3 slicePosition = ref entity.collisionContact.Point;
                     Transform transform = player.transform.Value;
-                    player.isAttacking = true;
 
-                    SliceObject(entity, slicePosition, transform.forward);
+                    SliceObject(entity.transform.Value, slicePosition, transform.forward);
                 }
             }
         } 

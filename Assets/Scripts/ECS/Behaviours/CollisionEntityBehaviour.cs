@@ -6,7 +6,7 @@ namespace Core.ECS.Behaviours
     public class CollisionEntityBehaviour : EntityBehaviour
     {
         [SerializeField]
-        protected LayerMask _triggeringLayers;
+        private LayerMask _triggeringLayers;
 
         protected virtual void OnTriggerEnter(Collider other)
             => TriggerBy(other, out GameEntity _);
@@ -25,8 +25,6 @@ namespace Core.ECS.Behaviours
                   .collisionRegistry.Value
                   .Take(collision.GetInstanceID())
                   .Entity;
-
-                if (!Entity.isEnabled) return false;
 
                 Entity?.ReplaceCollided(entered.id.Value);
                 Entity?.ReplaceCollisionContact(collision.ClosestPointOnBounds(transform.position));

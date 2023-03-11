@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IAnyTouchClickListener {
-    void OnAnyTouchClick(InputEntity entity);
+    void OnAnyTouchClick(InputEntity entity, UnityEngine.Vector2 position);
 }
