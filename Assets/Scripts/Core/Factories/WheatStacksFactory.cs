@@ -42,4 +42,5 @@ namespace Core
             _pool.Clear();
         }
     }
+    public class WheatStacksPool : PoolableMemoryPool<Vector3, IMemoryPool, WheatStackBehaviour> { }
 }
