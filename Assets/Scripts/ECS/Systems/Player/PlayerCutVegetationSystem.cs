@@ -25,9 +25,9 @@ namespace Core.ECS.Systems
 
             GameObject.Destroy(shatteredObj, 2f);
         }
-        private void SliceObject(GameEntity entity, Vector3 slicePosition, Vector3 sliceDirection)
+        private void SliceObject(Transform transform, Vector3 slicePosition, Vector3 sliceDirection)
         {
-            foreach (var slice in entity.transform.Value.GetComponentsInChildren<MeshFilter>())
+            foreach (var slice in transform.GetComponentsInChildren<MeshFilter>())
             {
                 GameObject source = slice.gameObject;
                 SlicedHull hull = source.Slice(slicePosition, sliceDirection);
@@ -40,9 +40,7 @@ namespace Core.ECS.Systems
 
                     GameObject lowerHull = hull.CreateLowerHull(source);
                     lowerHull.transform.localPosition = slicePosition;
-                    GenerateShatter(lowerHull);
-
-                    entity.isDestroyed = true;
+                    GenerateShatter(lowerHull);                
                 }
             }
         }
@@ -67,7 +65,7 @@ namespace Core.ECS.Systems
                     ref Vector3 slicePosition = ref entity.collisionContact.Point;
                     Transform transform = player.transform.Value;
 
-                    SliceObject(entity, slicePosition, transform.forward);
+                    SliceObject(entity.transform.Value, slicePosition, transform.forward);
                 }
             }
         } 

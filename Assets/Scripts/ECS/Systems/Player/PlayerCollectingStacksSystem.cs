@@ -26,7 +26,7 @@ namespace Core.ECS.Systems
                 {
                     byte newValue = (byte)(player.currentWheatStacks.Value + 1);
 
-                    if (newValue >= player.maxWheatStacks.Value) continue;
+                    if (newValue > player.maxWheatStacks.Value) continue;
 
                     stack.isCollected = true;
 

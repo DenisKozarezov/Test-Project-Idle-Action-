@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
 using Entitas;
-using Core.ECS.Behaviours;
 
 namespace Core.ECS.Systems
 {
@@ -23,7 +24,17 @@ namespace Core.ECS.Systems
         {
             foreach (GameEntity entity in entities)
             {
-                
+                Vector3 position = entity.position.Value;
+                float regenerationTime = entity.regenerationTime.Value;
+
+                DOTween.To(() => position + Vector3.down * 3f, (x) => entity.ReplacePosition(x), position, regenerationTime)
+                    .SetEase(Ease.Linear)
+                    .SetLink(entity.transform.Value.gameObject)
+                    .OnComplete(() =>
+                    {
+                        entity.isCanBeSliced = true;
+                        entity.RemoveIsGrowing();
+                    });
             }
         } 
     }

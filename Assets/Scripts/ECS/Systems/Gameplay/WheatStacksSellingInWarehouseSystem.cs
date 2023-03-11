@@ -54,7 +54,8 @@ namespace Core.ECS.Systems
                 .SetLink(transform.gameObject)
                 .OnComplete(() =>
                 {
-                    if (!stack.IsNullOrEmpty()) stack.isSold = true;
+                    if (stack.IsNullOrEmpty()) return;
+                    stack.isSold = true;
                     _factory.Despawn(stack);
                 });
         }
