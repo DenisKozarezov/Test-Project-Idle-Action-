@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
-using Core.ECS.Behaviours;
 using DG.Tweening;
 
-namespace Core.UI
+namespace Core.ECS.Behaviours
 {
+    [RequireComponent(typeof(RectTransform))]
     public sealed class MoneyCounter : EntityBehaviour, IAnyBroughtStacksListener
     {
         [SerializeReference]
@@ -15,6 +15,8 @@ namespace Core.UI
 
         private void Start()
         {
+            Entity.isMoneyCounter = true;
+            Entity.AddTransform(GetComponent<RectTransform>());
             Entity.AddAnyBroughtStacksListener(this);
         }
         private void OnDestroy()
@@ -36,7 +38,8 @@ namespace Core.UI
 
             if (IsPlaying) _tweener?.Kill();
 
-            _tweener = DOTween.To(() => currentValue, (x) => SetText(x), currentValue + addingValue, 1f);
+            _tweener = DOTween.To(() => currentValue, (x) => SetText(x), currentValue + addingValue, 1.5f)
+                .SetEase(Ease.Linear);
         }
     }
 }

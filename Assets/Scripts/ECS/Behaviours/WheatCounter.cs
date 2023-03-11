@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Core.Models;
-using Core.ECS.Behaviours;
 
-namespace Core.UI
+namespace Core.ECS.Behaviours
 {
-    public sealed class WheatCounter : EntityBehaviour, IAnyStackObtainedListener, IAnyBroughtStacksListener
+    public sealed class WheatCounter : EntityBehaviour, IAnyStackObtainedListener, IAnySoldListener
     {
         [SerializeReference]
         private TextMeshProUGUI _text;
@@ -14,6 +13,8 @@ namespace Core.UI
         private Image _background;
         [SerializeReference]
         private GameConfig _config;
+
+        private GameEntity _player;
 
         private void Start()
         {
@@ -26,12 +27,12 @@ namespace Core.UI
         public void RegisterListeners()
         {
             Entity.AddAnyStackObtainedListener(this);
-            Entity.AddAnyBroughtStacksListener(this);
+            Entity.AddAnySoldListener(this);
         }
         public void UnregisterListeners()
         {
             Entity.RemoveAnyStackObtainedListener(this);
-            Entity.RemoveAnyBroughtStacksListener();
+            Entity.RemoveAnySoldListener();
         }
         private void SetCounter(byte currentValue, byte maxValue)
         {
@@ -43,15 +44,17 @@ namespace Core.UI
         }
         public void OnAnyStackObtained(GameEntity entity)
         {
+            _player = entity;
+
             float fillAmount = (float)entity.currentWheatStacks.Value / entity.maxWheatStacks.Value;
             SetFillAmount(fillAmount);
             SetCounter(entity.currentWheatStacks.Value, entity.maxWheatStacks.Value);
         }
-        public void OnAnyBroughtStacks(GameEntity entity)
+        public void OnAnySold(GameEntity entity)
         {
-            float fillAmount = (float)entity.currentWheatStacks.Value / entity.maxWheatStacks.Value;
+            float fillAmount = (float)_player.currentWheatStacks.Value / _player.maxWheatStacks.Value;
             SetFillAmount(fillAmount);
-            SetCounter(entity.currentWheatStacks.Value, entity.maxWheatStacks.Value);
+            SetCounter(_player.currentWheatStacks.Value, _player.maxWheatStacks.Value);
         }
     }
 }

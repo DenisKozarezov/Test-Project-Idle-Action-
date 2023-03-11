@@ -12,7 +12,9 @@ namespace Core.ECS.Systems
         private readonly IWheatStacksFactory _factory;
         public WheatStacksSellingInWarehouseSystem(GameContext game, IWheatStacksFactory factory) : base(game)
         {
-            _stacks = game.GetGroup(GameMatcher.AllOf(GameMatcher.WheatStack, GameMatcher.Collected, GameMatcher.Grabbed));
+            _stacks = game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.WheatStack, GameMatcher.Collected, GameMatcher.Grabbed)
+                .NoneOf(GameMatcher.Destroyed));
             _collectingPoints = game.GetGroup(GameMatcher.CollectingPoint);
             _factory = factory;
         }
@@ -31,17 +33,32 @@ namespace Core.ECS.Systems
             {
                 foreach (GameEntity point in _collectingPoints)
                 {
-                    foreach (GameEntity stack in _stacks.GetEntities())
+                    int index = 0;
+                    foreach (GameEntity stack in _stacks)
                     {
                         Vector3 collectingPoint = point.collectingPoint.Value.position;
-                        stack.transform.Value
-                            .DOMove(collectingPoint, 0.5f)
-                            .SetEase(Ease.InOutBounce)
-                            .SetLink(stack.transform.Value.gameObject)
-                            .OnComplete(() => _factory.Despawn(stack));
+                        StartAnimation(stack, collectingPoint, index, _stacks.count);
+                        index++;
                     }
                 }
             }
+        }
+
+        private void StartAnimation(GameEntity stack, Vector3 collectingPoint, int index, int count)
+        {
+            Transform transform = stack.transform.Value;
+            float delay = 0.5f * ((float)index / count);
+
+            transform
+                .DOMove(collectingPoint, duration: 0.3f)
+                .SetDelay(delay)
+                .SetEase(Ease.InOutBounce)
+                .SetLink(transform.gameObject)
+                .OnComplete(() =>
+                {
+                    stack.isSold = true;
+                    _factory.Despawn(stack);
+                });
         }
     }
 }

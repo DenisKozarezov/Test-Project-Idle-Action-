@@ -10,6 +10,7 @@ namespace Core.ECS.Behaviours
         private void Start()
         {
             Entity.AddCollectingPoint(_collectingPoint);
+            Entity.AddPosition(transform.position);
         }
     }
 }

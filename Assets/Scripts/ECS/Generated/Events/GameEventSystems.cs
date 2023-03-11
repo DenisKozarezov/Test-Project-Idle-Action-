@@ -19,6 +19,7 @@ public sealed class GameEventSystems : Feature {
         Add(new GroundedEventSystem(contexts)); // priority: 0
         Add(new MovingEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
+        Add(new AnySoldEventSystem(contexts)); // priority: 0
         Add(new AnyStackObtainedEventSystem(contexts)); // priority: 0
         Add(new StoppedMovingEventSystem(contexts)); // priority: 0
     }

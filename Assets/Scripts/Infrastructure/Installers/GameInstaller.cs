@@ -11,11 +11,14 @@ namespace Core.Infrastructure.Installers
     {
         [SerializeReference]
         private GameConfig _config;
+        [SerializeField]
+        private RectTransform _coinsParent;
 
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<JoystickInput>().AsSingle();
             Container.BindInterfacesTo<ECSStartup>().AsSingle().NonLazy();
+            Container.Bind<GameConfig>().FromInstance(_config).AsSingle();
 
             BindPools();
         }
@@ -28,8 +31,10 @@ namespace Core.Infrastructure.Installers
                .FromComponentInNewPrefab(_config.WheatStackPrefab)
                .UnderTransformGroup("Wheat Stacks Pool"));
 
-            Container.BindFactory<RectTransform, CoinsFactory>()
-                .FromComponentInNewPrefab(_config.CoinPrefab);
+            Container.BindMemoryPoolCustomInterface<RectTransform, CoinsFactory, ICoinsFactory>()
+               .WithInitialSize(_config.WheatStacksPoolCapacity)
+               .FromComponentInNewPrefab(_config.CoinPrefab)
+               .UnderTransform(_coinsParent);
         }
     }
 }

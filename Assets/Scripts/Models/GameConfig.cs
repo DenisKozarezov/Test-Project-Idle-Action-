@@ -16,6 +16,6 @@ namespace Core.Models
         [field: SerializeField, Min(0f)] public float MovementSpeed { get; private set; }
 
         [field: Header("UI")]
-        [field: SerializeField] public Sprite CoinPrefab { get; private set; }
+        [field: SerializeField] public GameObject CoinPrefab { get; private set; }
     }
 }

@@ -13,6 +13,7 @@ public sealed class GameCleanupSystems : Feature {
         Add(new RemoveStoppedMovingGameSystem(contexts));
         Add(new RemoveCollidedGameSystem(contexts));
         Add(new RemoveCollisionContactGameSystem(contexts));
+        Add(new RemoveSoldGameSystem(contexts));
         Add(new RemoveStackObtainedGameSystem(contexts));
         Add(new RemoveAttackingGameSystem(contexts));
         Add(new RemoveBroughtStacksGameSystem(contexts));
