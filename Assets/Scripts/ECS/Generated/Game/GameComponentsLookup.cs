@@ -35,34 +35,33 @@ public static class GameComponentsLookup {
     public const int Id = 24;
     public const int Identifiers = 25;
     public const int IsGrowing = 26;
-    public const int Logger = 27;
-    public const int MaxWheatStacks = 28;
-    public const int MoneyCounter = 29;
-    public const int Movable = 30;
-    public const int Moving = 31;
-    public const int Physics = 32;
-    public const int Player = 33;
-    public const int Position = 34;
-    public const int PotentialMoney = 35;
-    public const int RegenerationTime = 36;
-    public const int Rigidbody = 37;
-    public const int Sold = 38;
-    public const int SpriteRenderer = 39;
-    public const int StackObtained = 40;
-    public const int StoppedMoving = 41;
-    public const int Time = 42;
-    public const int Transform = 43;
-    public const int Vegetation = 44;
-    public const int ViewController = 45;
-    public const int WheatStack = 46;
-    public const int DestroyedListener = 47;
-    public const int DirectionListener = 48;
-    public const int GroundedListener = 49;
-    public const int MovingListener = 50;
-    public const int PositionListener = 51;
-    public const int StoppedMovingListener = 52;
+    public const int MaxWheatStacks = 27;
+    public const int MoneyCounter = 28;
+    public const int Movable = 29;
+    public const int Moving = 30;
+    public const int Physics = 31;
+    public const int Player = 32;
+    public const int Position = 33;
+    public const int PotentialMoney = 34;
+    public const int RegenerationTime = 35;
+    public const int Rigidbody = 36;
+    public const int Sold = 37;
+    public const int SpriteRenderer = 38;
+    public const int StackObtained = 39;
+    public const int StoppedMoving = 40;
+    public const int Time = 41;
+    public const int Transform = 42;
+    public const int Vegetation = 43;
+    public const int ViewController = 44;
+    public const int WheatStack = 45;
+    public const int DestroyedListener = 46;
+    public const int DirectionListener = 47;
+    public const int GroundedListener = 48;
+    public const int MovingListener = 49;
+    public const int PositionListener = 50;
+    public const int StoppedMovingListener = 51;
 
-    public const int TotalComponents = 53;
+    public const int TotalComponents = 52;
 
     public static readonly string[] componentNames = {
         "AnyBroughtStacksListener",
@@ -92,7 +91,6 @@ public static class GameComponentsLookup {
         "Id",
         "Identifiers",
         "IsGrowing",
-        "Logger",
         "MaxWheatStacks",
         "MoneyCounter",
         "Movable",
@@ -148,7 +146,6 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.Id),
         typeof(Core.ECS.Components.Identifiers),
         typeof(Core.ECS.Components.IsGrowing),
-        typeof(Core.ECS.Components.Logger),
         typeof(Core.ECS.Components.MaxWheatStacks),
         typeof(Core.ECS.Components.MoneyCounter),
         typeof(Core.ECS.Components.Movable),

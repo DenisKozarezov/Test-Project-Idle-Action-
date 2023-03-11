@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using DG.Tweening;
 
 namespace Core
 {
-    public sealed class JoystickHandle : MonoBehaviour, IDragHandler, IEndDragHandler, IAnyTouchClickListener
+    public sealed class JoystickHandle : MonoBehaviour, IAnyTouchClickListener, IAnyStoppedDraggingListener
     {
         [SerializeReference]
         private CanvasGroup _canvasGroup;
@@ -13,17 +12,33 @@ namespace Core
         private RawImage _placeholder;
         [SerializeReference]
         private RawImage _handle;
-        [SerializeField, Range(0f, 5f)]
+        [SerializeField, Range(0f, 100f)]
         private float _moveRadius;
 
+        private InputEntity _input;
+        private Vector2 _touchClick;
         private bool _alreadyTouched;
 
-        private void Start()
+        private void Awake()
         {
-            ECSExtensions.Input().joystickEntity.AddAnyTouchClickListener(this);
+            _input = ECSExtensions.Input().joystickEntity;
+            _input.AddAnyTouchClickListener(this);
+            _input.AddAnyStoppedDraggingListener(this);
             Fade(true, 0f);
         }
-        private void Fade(bool isFade, float duration = 1f)
+        private void Update()
+        {
+            if (!_alreadyTouched) return;
+
+            Vector2 offset = Vector2.ClampMagnitude(_input.touchOffset.Value, _moveRadius);
+            _handle.rectTransform.position = _touchClick + offset;
+        }
+        private void OnDestroy()
+        {
+            _input.RemoveAnyTouchClickListener(this);
+            _input.RemoveAnyStoppedDraggingListener(this);
+        }
+        private void Fade(bool isFade, float duration = 0.5f)
         {
             float alpha = isFade ? 0f : 1f;
 
@@ -36,25 +51,20 @@ namespace Core
                     else _alreadyTouched = false;
                 });
         }
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            Vector2 offset = eventData.position - _handle.rectTransform.anchoredPosition;
-            _handle.rectTransform.anchoredPosition = _handle.rectTransform.anchoredPosition + Vector2.ClampMagnitude(offset, _moveRadius);
-        }
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            _handle.rectTransform.localPosition = Vector3.zero;
-            Fade(true);
-        }
         public void OnAnyTouchClick(InputEntity entity, Vector2 position)
         {
             if (!_alreadyTouched)
             {
                 _alreadyTouched = true;
+                _touchClick = position;
                 _placeholder.rectTransform.position = position;
                 Fade(false);
             }
+        }
+        public void OnAnyStoppedDragging(InputEntity entity)
+        {
+            _handle.rectTransform.localPosition = Vector3.zero;
+            Fade(true);
         }
     }
 }

@@ -18,7 +18,10 @@ namespace Core.Services
         public JoystickInput() 
         {
             _playerControls = new PlayerControls();
-            _playerControls.Player.TouchPress.started += (ctx) => _oldPosition = TouchPosition;
+            _playerControls.Player.TouchPress.started += (ctx) =>
+            {
+                _oldPosition = _playerControls.Player.TouchInput.ReadValue<Vector2>();
+            };
         }
 
         public void Enable() => _playerControls.Enable();

@@ -3480,7 +3480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9202046974420818634, guid: 077b4730fce26084c9d7f22ba9bb7b27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 9202046974420818634, guid: 077b4730fce26084c9d7f22ba9bb7b27, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4107,7 +4107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869288739}
   m_LocalRotation: {x: 0.42788342, y: -1e-45, z: 1e-45, w: 0.903834}
-  m_LocalPosition: {x: -13.67, y: 7.2147107, z: -27.338316}
+  m_LocalPosition: {x: -13.67, y: 7.124712, z: -27.338318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 525959611}
@@ -4480,7 +4480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.42788342, y: -1e-45, z: 1e-45, w: 0.903834}
-  m_LocalPosition: {x: -13.67, y: 7.2147107, z: -27.338316}
+  m_LocalPosition: {x: -13.67, y: 7.124712, z: -27.338318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1947905913}
@@ -6519,7 +6519,7 @@ MonoBehaviour:
   _canvasGroup: {fileID: 1999489886}
   _placeholder: {fileID: 1999489884}
   _handle: {fileID: 1412566238}
-  _moveRadius: 5
+  _moveRadius: 80
 --- !u!1 &1448252624
 GameObject:
   m_ObjectHideFlags: 0

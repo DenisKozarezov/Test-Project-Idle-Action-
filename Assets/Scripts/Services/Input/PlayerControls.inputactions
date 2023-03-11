@@ -29,21 +29,43 @@
                     "id": "1f2daef0-a243-4401-914f-e87fb51a9949",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "c492344f-ac0a-433e-92c5-b03dc576a5a0",
-                    "path": "<Touchscreen>/primaryTouch",
+                    "name": "One Modifier",
+                    "id": "c24bbaef-bb22-43aa-aeaa-b6fcc45cb908",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchInput",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b86ed4e4-622e-4000-83ca-117d5df66f1f",
+                    "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "TouchInput",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "55642b5d-c91b-42fa-8d00-090afac494ce",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchInput",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

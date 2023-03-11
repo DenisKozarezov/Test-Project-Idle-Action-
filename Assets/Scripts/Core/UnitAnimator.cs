@@ -13,6 +13,10 @@ namespace Core.Units
 
         [SerializeField]
         private Animator _animator;
+        [SerializeField]
+        private GameObject _scythe;
+
+        private void Awake() => _scythe.SetActive(false);
 
         public void PlayRun() => _animator.SetBool(_runningHash, true);
         public void PlayGrounded() => _animator.SetBool(_onGroundHash, true);
@@ -25,8 +29,10 @@ namespace Core.Units
         }
         private IEnumerator AttackCoroutine()
         {
+            _scythe.SetActive(true);
             _animator.SetBool(_attackingHash, true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.3f);
+            _scythe.SetActive(false);
             _animator.SetBool(_attackingHash, false);
         }
         public void PlayIdle()
