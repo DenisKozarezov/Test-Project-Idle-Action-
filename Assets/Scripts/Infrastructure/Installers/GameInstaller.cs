@@ -25,7 +25,11 @@ namespace Core.Infrastructure.Installers
             Container.BindFactoryCustomInterface<Vector3, WheatStackBehaviour, WheatStacksFactory, IWheatStacksFactory>()
                .FromMonoPoolableMemoryPool(x => x
                .WithInitialSize(_config.WheatStacksPoolCapacity)
-               .FromComponentInNewPrefab(_config.WheatStackPrefab));
+               .FromComponentInNewPrefab(_config.WheatStackPrefab)
+               .UnderTransformGroup("Wheat Stacks Pool"));
+
+            Container.BindFactory<RectTransform, CoinsFactory>()
+                .FromComponentInNewPrefab(_config.CoinPrefab);
         }
     }
 }

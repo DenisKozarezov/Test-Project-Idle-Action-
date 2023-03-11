@@ -18,3 +18,4 @@ MonoBehaviour:
   <WheatStackPrice>k__BackingField: 15
   <WheatStackPrefab>k__BackingField: {fileID: 6937178273940906619, guid: 6d642e1e865102d489419f723c140d82, type: 3}
   <MovementSpeed>k__BackingField: 3
+  <CoinPrefab>k__BackingField: {fileID: 21300000, guid: 12f2e79ed31a7b246941cf409798ff0a, type: 3}

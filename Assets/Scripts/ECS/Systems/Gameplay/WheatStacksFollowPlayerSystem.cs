@@ -43,9 +43,9 @@ namespace Core.ECS.Systems
 
             transform.position += velocity;
 
-            if (distance <= 1E-2)
+            if (distance <= 1E-1)
             {
-                transform.SetParent(grabPoint);
+                transform.SetParent(grabPoint, true);
                 stack.isGrabbed = true;
             }
         }

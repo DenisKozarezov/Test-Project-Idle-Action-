@@ -4,7 +4,7 @@ namespace Core.ECS.Systems.UI
     {
         public UISystems(Contexts contexts) : base(nameof(UISystems))
         {
-        
+            
         }
     }
 }

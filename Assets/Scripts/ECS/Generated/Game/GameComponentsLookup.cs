@@ -19,46 +19,47 @@ public static class GameComponentsLookup {
     public const int BroughtStacks = 8;
     public const int CanBeSliced = 9;
     public const int Collected = 10;
-    public const int Collided = 11;
-    public const int Collider = 12;
-    public const int CollisionContact = 13;
-    public const int CollisionRegistry = 14;
-    public const int CurrentMoney = 15;
-    public const int CurrentWheatStacks = 16;
-    public const int Destroyed = 17;
-    public const int Direction = 18;
-    public const int Grabbed = 19;
-    public const int GrabPoint = 20;
-    public const int Grounded = 21;
-    public const int Id = 22;
-    public const int Identifiers = 23;
-    public const int IsGrowing = 24;
-    public const int Logger = 25;
-    public const int MaxWheatStacks = 26;
-    public const int Movable = 27;
-    public const int Moving = 28;
-    public const int Physics = 29;
-    public const int Player = 30;
-    public const int Position = 31;
-    public const int PotentialMoney = 32;
-    public const int RegenerationTime = 33;
-    public const int Rigidbody = 34;
-    public const int SpriteRenderer = 35;
-    public const int StackObtained = 36;
-    public const int StoppedMoving = 37;
-    public const int Time = 38;
-    public const int Transform = 39;
-    public const int Vegetation = 40;
-    public const int ViewController = 41;
-    public const int WheatStack = 42;
-    public const int DestroyedListener = 43;
-    public const int DirectionListener = 44;
-    public const int GroundedListener = 45;
-    public const int MovingListener = 46;
-    public const int PositionListener = 47;
-    public const int StoppedMovingListener = 48;
+    public const int CollectingPoint = 11;
+    public const int Collided = 12;
+    public const int Collider = 13;
+    public const int CollisionContact = 14;
+    public const int CollisionRegistry = 15;
+    public const int CurrentMoney = 16;
+    public const int CurrentWheatStacks = 17;
+    public const int Destroyed = 18;
+    public const int Direction = 19;
+    public const int Grabbed = 20;
+    public const int GrabPoint = 21;
+    public const int Grounded = 22;
+    public const int Id = 23;
+    public const int Identifiers = 24;
+    public const int IsGrowing = 25;
+    public const int Logger = 26;
+    public const int MaxWheatStacks = 27;
+    public const int Movable = 28;
+    public const int Moving = 29;
+    public const int Physics = 30;
+    public const int Player = 31;
+    public const int Position = 32;
+    public const int PotentialMoney = 33;
+    public const int RegenerationTime = 34;
+    public const int Rigidbody = 35;
+    public const int SpriteRenderer = 36;
+    public const int StackObtained = 37;
+    public const int StoppedMoving = 38;
+    public const int Time = 39;
+    public const int Transform = 40;
+    public const int Vegetation = 41;
+    public const int ViewController = 42;
+    public const int WheatStack = 43;
+    public const int DestroyedListener = 44;
+    public const int DirectionListener = 45;
+    public const int GroundedListener = 46;
+    public const int MovingListener = 47;
+    public const int PositionListener = 48;
+    public const int StoppedMovingListener = 49;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "AnyBroughtStacksListener",
@@ -72,6 +73,7 @@ public static class GameComponentsLookup {
         "BroughtStacks",
         "CanBeSliced",
         "Collected",
+        "CollectingPoint",
         "Collided",
         "Collider",
         "CollisionContact",
@@ -124,6 +126,7 @@ public static class GameComponentsLookup {
         typeof(Core.ECS.Components.BroughtStacks),
         typeof(Core.ECS.Components.CanBeSliced),
         typeof(Core.ECS.Components.Collected),
+        typeof(Core.ECS.Components.CollectingPoint),
         typeof(Core.ECS.Components.Collided),
         typeof(Core.ECS.Components.ColliderComponent),
         typeof(Core.ECS.Components.CollisionContact),

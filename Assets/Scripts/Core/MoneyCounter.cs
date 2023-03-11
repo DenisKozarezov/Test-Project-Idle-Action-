@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Core.ECS.Behaviours;
+using DG.Tweening;
 
 namespace Core.UI
 {
@@ -8,6 +9,9 @@ namespace Core.UI
     {
         [SerializeReference]
         private TextMeshProUGUI _text;
+
+        private Tweener _tweener;
+        private bool IsPlaying => _tweener != null && _tweener.IsActive() && _tweener.IsPlaying();
 
         private void Start()
         {
@@ -17,15 +21,22 @@ namespace Core.UI
         {
             Entity.RemoveAnyBroughtStacksListener();
         }
-
         public void OnAnyBroughtStacks(GameEntity entity)
         {
-            SetMoney(entity.currentMoney.Value);
+            AddMoney(entity.currentMoney.Value, entity.potentialMoney.Value);
         }
 
-        public void SetMoney(int value)
+        private void SetText(int value)
         {
             _text.text = value.ToString();
+        }
+        private void AddMoney(int currentValue, int addingValue)
+        {
+            if (addingValue == 0) return;
+
+            if (IsPlaying) _tweener?.Kill();
+
+            _tweener = DOTween.To(() => currentValue, (x) => SetText(x), currentValue + addingValue, 1f);
         }
     }
 }

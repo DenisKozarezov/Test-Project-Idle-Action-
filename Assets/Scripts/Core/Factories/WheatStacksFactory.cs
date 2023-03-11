@@ -7,6 +7,7 @@ namespace Core
 {
     public interface IWheatStacksFactory : IFactory<Vector3, WheatStackBehaviour> 
     {
+        void Despawn(GameEntity obj);
         void Clear();
     }
 
@@ -27,12 +28,16 @@ namespace Core
             _pool.AddLast(stack);
             return stack;
         }
+        public void Despawn(GameEntity obj)
+        {
+            obj.isDestroyed = true;
+            obj.transform.Value.SetParent(_parent, true);
+        }
         public void Clear()
         {
             foreach (WheatStackBehaviour stack in _pool)
             {
-                stack.transform.SetParent(_parent, true);
-                stack.Entity.isDestroyed = true;
+                Despawn(stack.Entity);
             }
             _pool.Clear();
         }
