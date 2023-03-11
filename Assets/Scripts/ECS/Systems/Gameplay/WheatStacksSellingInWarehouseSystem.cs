@@ -12,9 +12,7 @@ namespace Core.ECS.Systems
         private readonly IWheatStacksFactory _factory;
         public WheatStacksSellingInWarehouseSystem(GameContext game, IWheatStacksFactory factory) : base(game)
         {
-            _stacks = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.WheatStack, GameMatcher.Collected, GameMatcher.Grabbed)
-                .NoneOf(GameMatcher.Destroyed));
+            _stacks = game.GetGroup(GameMatcher.AllOf(GameMatcher.WheatStack, GameMatcher.Collected, GameMatcher.Grabbed));
             _collectingPoints = game.GetGroup(GameMatcher.CollectingPoint);
             _factory = factory;
         }
@@ -56,7 +54,7 @@ namespace Core.ECS.Systems
                 .SetLink(transform.gameObject)
                 .OnComplete(() =>
                 {
-                    stack.isSold = true;
+                    if (!stack.IsNullOrEmpty()) stack.isSold = true;
                     _factory.Despawn(stack);
                 });
         }

@@ -144,7 +144,6 @@ MonoBehaviour:
   _triggeringLayers:
     serializedVersion: 2
     m_Bits: 64
-  _text: {fileID: 0}
 --- !u!95 &5291311902758419181
 Animator:
   serializedVersion: 3
